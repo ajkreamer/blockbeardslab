@@ -189,15 +189,15 @@
 </head>
 <body>
     <div class="particles">
-        <div class="particle" style="left: 10%; top: 15%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; top: 65%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 30%; top: 35%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 40%; top: 80%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 50%; top: 25%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="left: 60%; top: 70%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 70%; top: 45%; animation-delay: 1.2s;"></div>
-        <div class="particle" style="left: 80%; top: 90%; animation-delay: 0.8s;"></div>
-        <div class="particle" style="left: 90%; top: 55%; animation-delay: 1.8s;"></div>
+        <div class="particle" style="animation-delay: 0s;"></div>
+        <div class="particle" style="animation-delay: 1s;"></div>
+        <div class="particle" style="animation-delay: 2s;"></div>
+        <div class="particle" style="animation-delay: 1.5s;"></div>
+        <div class="particle" style="animation-delay: 0.5s;"></div>
+        <div class="particle" style="animation-delay: 2.5s;"></div>
+        <div class="particle" style="animation-delay: 1.2s;"></div>
+        <div class="particle" style="animation-delay: 0.8s;"></div>
+        <div class="particle" style="animation-delay: 1.8s;"></div>
     </div>
 
     <div class="container">
@@ -226,14 +226,22 @@
     </div>
 
     <script>
-        // Randomly assign particle colors
+        // Randomly assign particle colors and positions
         document.addEventListener('DOMContentLoaded', function() {
             const particles = document.querySelectorAll('.particle');
             const colorClasses = ['particle-cyan', 'particle-yellow', 'particle-magenta'];
             
             particles.forEach(particle => {
+                // Random color
                 const randomColorClass = colorClasses[Math.floor(Math.random() * colorClasses.length)];
                 particle.classList.add(randomColorClass);
+                
+                // Random position
+                const randomLeft = Math.floor(Math.random() * 95) + '%'; // 0-95% to keep particles on screen
+                const randomTop = Math.floor(Math.random() * 95) + '%';  // 0-95% to keep particles on screen
+                
+                particle.style.left = randomLeft;
+                particle.style.top = randomTop;
             });
         });
 
