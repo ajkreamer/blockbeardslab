@@ -157,9 +157,20 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgb(0, 188, 212);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
+        }
+
+        .particle-cyan {
+            background: rgb(0, 188, 212);
+        }
+
+        .particle-yellow {
+            background: rgb(255, 235, 59);
+        }
+
+        .particle-magenta {
+            background: rgb(233, 30, 99);
         }
 
         @keyframes float {
@@ -178,15 +189,15 @@
 </head>
 <body>
     <div class="particles">
-        <div class="particle" style="left: 10%; top: 15%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; top: 65%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 30%; top: 35%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 40%; top: 80%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 50%; top: 25%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="left: 60%; top: 70%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 70%; top: 45%; animation-delay: 1.2s;"></div>
-        <div class="particle" style="left: 80%; top: 90%; animation-delay: 0.8s;"></div>
-        <div class="particle" style="left: 90%; top: 55%; animation-delay: 1.8s;"></div>
+        <div class="particle particle-magenta" style="left: 10%; top: 15%; animation-delay: 0s;"></div>
+        <div class="particle particle-cyan" style="left: 20%; top: 65%; animation-delay: 1s;"></div>
+        <div class="particle particle-yellow" style="left: 30%; top: 35%; animation-delay: 2s;"></div>
+        <div class="particle particle-cyan" style="left: 40%; top: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle particle-magenta" style="left: 50%; top: 25%; animation-delay: 0.5s;"></div>
+        <div class="particle particle-yellow" style="left: 60%; top: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle particle-cyan" style="left: 70%; top: 45%; animation-delay: 1.2s;"></div>
+        <div class="particle particle-yellow" style="left: 80%; top: 90%; animation-delay: 0.8s;"></div>
+        <div class="particle particle-magenta" style="left: 90%; top: 55%; animation-delay: 1.8s;"></div>
     </div>
 
     <div class="container">
