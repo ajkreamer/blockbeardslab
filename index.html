@@ -189,7 +189,7 @@
 </head>
 <body>
     <div class="particles">
-        <div class="particle" style="animation-delay: 0s;"></div>
+        <!-- <div class="particle" style="animation-delay: 0s;"></div>
         <div class="particle" style="animation-delay: 1s;"></div>
         <div class="particle" style="animation-delay: 2s;"></div>
         <div class="particle" style="animation-delay: 1.5s;"></div>
@@ -197,7 +197,7 @@
         <div class="particle" style="animation-delay: 2.5s;"></div>
         <div class="particle" style="animation-delay: 1.2s;"></div>
         <div class="particle" style="animation-delay: 0.8s;"></div>
-        <div class="particle" style="animation-delay: 1.8s;"></div>
+        <div class="particle" style="animation-delay: 1.8s;"></div> -->
     </div>
 
     <div class="container">
@@ -226,23 +226,38 @@
     </div>
 
     <script>
-        // Randomly assign particle colors and positions
+        // Randomly create and position particles
         document.addEventListener('DOMContentLoaded', function() {
-            const particles = document.querySelectorAll('.particle');
+            const particlesContainer = document.querySelector('.particles');
             const colorClasses = ['particle-cyan', 'particle-yellow', 'particle-magenta'];
             
-            particles.forEach(particle => {
+            // Generate a random number of particles between 8 and 25
+            const numParticles = Math.floor(Math.random() * 90) + 10;
+            
+            for (let i = 0; i < numParticles; i++) {
+                // Create particle element
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
                 // Random color
                 const randomColorClass = colorClasses[Math.floor(Math.random() * colorClasses.length)];
                 particle.classList.add(randomColorClass);
                 
                 // Random position
-                const randomLeft = Math.floor(Math.random() * 95) + '%'; // 0-95% to keep particles on screen
-                const randomTop = Math.floor(Math.random() * 95) + '%';  // 0-95% to keep particles on screen
+                const randomLeft = Math.floor(Math.random() * 95) + '%';
+                const randomTop = Math.floor(Math.random() * 95) + '%';
                 
+                // Random animation delay
+                const randomDelay = Math.random() * 3 + 's'; // 0-3 seconds
+                
+                // Apply styles
                 particle.style.left = randomLeft;
                 particle.style.top = randomTop;
-            });
+                particle.style.animationDelay = randomDelay;
+                
+                // Add to container
+                particlesContainer.appendChild(particle);
+            }
         });
 
         // Add some interactivity
