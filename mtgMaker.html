@@ -28,8 +28,17 @@
 <body>
     <table id="card">
         <tr>
-            <td id="cardControls">Controls</td>
-            <td id="cardArt" class="blue">Card</td>
+            <td id="cardControls">
+                <h5>Controls</h5>
+                <div class="input-field">
+                    <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
+                    <button class="btn waves-effect waves-light" onclick="document.getElementById('backgroundImageInput').click()">
+                        <i class="material-icons left">image</i>
+                        Select Background Image
+                    </button>
+                </div>
+            </td>
+            <td id="cardArt">Card</td>
         </tr>
     </table>
 </body>
@@ -38,6 +47,22 @@
 
 <script>
     $(function () {
-
+        // Handle background image file selection
+        $('#backgroundImageInput').on('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageUrl = event.target.result;
+                    $('#cardArt').css({
+                        'background-image': `url(${imageUrl})`,
+                        'background-size': 'cover',
+                        'background-position': 'center',
+                        'background-repeat': 'no-repeat'
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     });
 </script>
