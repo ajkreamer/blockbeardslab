@@ -50,49 +50,73 @@
 
                 <div><br><br></div>
 
-                <div class="row">
-                    <div class="input-field col s2">
-                        <input id="cardNameFontSize" type="number" min="8" max="72" value="24">
-                        <label for="cardNameFontSize">Size</label>
-                    </div>
-                    <div class="input-field col s10">
-                        <input id="cardName" type="text">
-                        <label for="cardName">Card Name</label>
-                    </div>
-                </div>
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="collapsible-header">Card Name</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="cardNameFontSize" type="number" min="8" max="72" value="24">
+                                    <label for="cardNameFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <input id="cardName" type="text">
+                                    <label for="cardName">Card Name</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-                <div class="row">
-                    <div class="input-field col s2">
-                        <input id="cardTypeFontSize" type="number" min="8" max="72" value="18">
-                        <label for="cardTypeFontSize">Size</label>
-                    </div>
-                    <div class="input-field col s10">
-                        <input id="cardType" type="text">
-                        <label for="cardType">Card Type</label>
-                    </div>
-                </div>
+                    <li>
+                        <div class="collapsible-header">Card Type</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="cardTypeFontSize" type="number" min="8" max="72" value="18">
+                                    <label for="cardTypeFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <input id="cardType" type="text">
+                                    <label for="cardType">Card Type</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Card Effect</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="cardEffectFontSize" type="number" min="8" max="72" value="16">
+                                    <label for="cardEffectFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <textarea id="cardEffect" class="materialize-textarea"></textarea>
+                                    <label for="cardEffect">Card Effect</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
                 
-                <div class="row">
-                    <div class="input-field col s2">
-                        <input id="cardEffectFontSize" type="number" min="8" max="72" value="16">
-                        <label for="cardEffectFontSize">Size</label>
-                    </div>
-                    <div class="input-field col s10">
-                        <textarea id="cardEffect" class="materialize-textarea"></textarea>
-                        <label for="cardEffect">Card Effect</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s2">
-                        <input id="powerToughnessFontSize" type="number" min="8" max="72" value="20">
-                        <label for="powerToughnessFontSize">Size</label>
-                    </div>
-                    <div class="input-field col s10">
-                        <input id="powerToughness" type="text">
-                        <label for="powerToughness">Power/Toughness</label>
-                    </div>
-                </div>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header">Power/Toughness</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="powerToughnessFontSize" type="number" min="8" max="72" value="20">
+                                    <label for="powerToughnessFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <input id="powerToughness" type="text">
+                                    <label for="powerToughness">Power/Toughness</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </td>
             <td id="cardArt">Card</td>
         </tr>
@@ -103,6 +127,9 @@
 
 <script>
     $(function () {
+        // Initialize collapsibles
+        $('.collapsible').collapsible();
+        
         // Handle background image file selection
         $('#backgroundImageInput').on('change', function(e) {
             const file = e.target.files[0];
