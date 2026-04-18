@@ -46,6 +46,11 @@
                         Download
                     </button>
                 </div>
+
+                <div class="input-field">
+                    <input id="cardName" type="text" class="validate">
+                    <label for="cardName">Card Name</label>
+                </div>
             </td>
             <td id="cardArt">Card</td>
         </tr>
@@ -82,8 +87,10 @@
                 scale: 2,
                 useCORS: true
             }).then(function(canvas) {
+                const cardName = $('#cardName').val() || 'mtg-card';
+                const safeFileName = cardName.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.png';
                 const link = document.createElement('a');
-                link.download = 'mtg-card.png';
+                link.download = safeFileName;
                 link.href = canvas.toDataURL();
                 link.click();
             }).catch(function(error) {
