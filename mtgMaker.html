@@ -11,7 +11,7 @@
 
     <style>
         #card {
-            border: none;
+            border: 0px;
             width: 1100px !important;
         }
 
@@ -51,8 +51,23 @@
                 <div><br><br></div>
 
                 <div class="input-field">
-                    <input id="cardName" type="text" class="validate">
+                    <input id="cardName" type="text">
                     <label for="cardName">Card Name</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="cardType" type="text">
+                    <label for="cardType">Card Type</label>
+                </div>
+                
+                <div class="input-field">
+                    <textarea id="cardEffect" class="materialize-textarea"></textarea>
+                    <label for="cardEffect">Card Effect</label>
+                </div>
+                
+                <div class="input-field">
+                    <input id="powerToughness" type="text">
+                    <label for="powerToughness">Power/Toughness</label>
                 </div>
             </td>
             <td id="cardArt">Card</td>
