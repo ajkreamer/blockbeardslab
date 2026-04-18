@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <style>
-
+        #cardArt {
+            height: 630px !important;
+            padding: 0px !important;
+            width: 880px !important;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -18,10 +22,10 @@
 </head>
 
 <body>
-    <table width="1000px">
+    <table id="card">
         <tr>
-            <td>Controls</td>
-            <td class="blue" height="880px" padding="0px" width="630px">Card</td>
+            <td id="cardControls">Controls</td>
+            <td id="cardArt" class="blue">Card</td>
         </tr>
     </table>
 </body>
