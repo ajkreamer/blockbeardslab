@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <style>
+        @font-face {
+            font-family: 'Beleren';
+            src: url('fonts/Beleren2016-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BelerenCaps';
+            src: url('fonts/Beleren2016SmallCaps-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'MPlantin';
+            src: url('fonts/MPlantin.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'MPlantinItalic';
+            src: url('fonts/MPlantinItalic.ttf') format('truetype');
+        }
+
+        .color-block {
+            height: 25px !important;
+            width: 25px !important;
+        }
+    
         #card {
             border: 0px;
             width: 1100px !important;
@@ -31,12 +56,18 @@
             width: 630px !important;
         }
 
+        #cardArtName {
+            font-family: 'Beleren';
+        }
+
         #cardTextContainer {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
         }
     </style>
+
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -129,16 +160,16 @@
 
             <td id="cardArt">
                 <div id="cardArtName"          style="padding: 0px; margin: 0px; height: 132px;">Name</div>
-                <div id="cardTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
-                    <!-- <div id="cardType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
-                    <div id="cardText"             style="padding: 0px; margin: 0px;">
+                <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
+                    <!-- <div id="cardArtType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
+                    <div id="cardArtText"             style="padding: 0px; margin: 0px;">
                         This text needs two box shadows, a highlight and a lowlight
                         <br>Background is the same image, just repeated vertically
                     </div>
-                    <div id="cardTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
-                    <div id="artCredits"           style="padding: 0px; margin: 0px; height: 72px;">
-                        <span id="artCredit">Art by</span>
-                        <br><span id="proxyCredit">Proxy by Blockbeard</span>
+                    <div id="cardArtTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
+                    <div id="cardArtCredits"           style="padding: 0px; margin: 0px; height: 72px;">
+                        <span id="cardArtCredit">Art by</span>
+                        <br><span id="cardProxyCredit">Proxy by Blockbeard</span>
                     </div> -->
                 </div>
             </td>
