@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MTG Maker</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        #card {
+            border: 0px;
+            width: 1100px !important;
+        }
+
+        #card tr {
+            border: 0px;
+        }
+
+        #cardControls {
+            vertical-align: top;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #cardArt {
+            height: 880px !important;
+            padding: 0px !important;
+            width: 630px !important;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <table id="card">
+        <tr>
+            <td id="cardControls">
+                <div class="input-field">
+                    <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
+                    <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
+                        Art
+                    </button>
+
+                    <button class="btn right" id="downloadButton">
+                        Download
+                    </button>
+                </div>
+
+                <div><br><br></div>
+
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="collapsible-header">Card Name</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="cardNameFontSize" type="number" min="8" max="72" value="24">
+                                    <label for="cardNameFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <input id="cardName" type="text">
+                                    <label for="cardName">Card Name</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Card Type</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="cardTypeFontSize" type="number" min="8" max="72" value="18">
+                                    <label for="cardTypeFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <input id="cardType" type="text">
+                                    <label for="cardType">Card Type</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Card Effect</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="cardEffectFontSize" type="number" min="8" max="72" value="16">
+                                    <label for="cardEffectFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <textarea id="cardEffect" class="materialize-textarea"></textarea>
+                                    <label for="cardEffect">Card Effect</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Power/Toughness</div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input id="powerToughnessFontSize" type="number" min="8" max="72" value="20">
+                                    <label for="powerToughnessFontSize">Size</label>
+                                </div>
+                                <div class="input-field col s10">
+                                    <input id="powerToughness" type="text">
+                                    <label for="powerToughness">Power/Toughness</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </td>
+
+            <td id="cardArt"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<script>
+    $(function () {
+        // Initialize collapsibles
+        $('.collapsible').collapsible();
+        
+        // Handle background image file selection
+        $('#backgroundImageInput').on('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageUrl = event.target.result;
+                    $('#cardArt').css({
+                        'background-image': `url(${imageUrl})`,
+                        'background-size': 'cover',
+                        'background-position': 'center',
+                        'background-repeat': 'no-repeat'
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle card download
+        $('#downloadButton').on('click', function() {
+            const cardArt = document.getElementById('cardArt');
+            html2canvas(cardArt, {
+                backgroundColor: null,
+                scale: 2,
+                useCORS: true
+            }).then(function(canvas) {
+                const cardName = $('#cardName').val() || 'mtg-card';
+                const safeFileName = cardName.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.png';
+                const link = document.createElement('a');
+                link.download = safeFileName;
+                link.href = canvas.toDataURL();
+                link.click();
+            }).catch(function(error) {
+                console.error('Error capturing card:', error);
+                alert('Error capturing card. Please try again.');
+            });
+        });
+    });
+</script>
