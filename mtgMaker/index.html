@@ -97,7 +97,7 @@
                         <div class="collapsible-body">
                             <div class="row">
                                 <div class="input-field col s2">
-                                    <input id="cardNameFontSize" type="number" min="8" max="72" value="24">
+                                    <input id="cardNameFontSize" type="number" value="24">
                                     <label for="cardNameFontSize">Size</label>
                                 </div>
                                 <div class="input-field col s10">
@@ -188,6 +188,11 @@
         $('#cardName').on('input', function() {
             $('#cardArtName').text($(this).val());
         });
+
+        // Keep the card preview name size in sync with the font size input
+        $('#cardNameFontSize').on('input', function() {
+            $('#cardArtName').css('font-size', `${$(this).val()}px`);
+        }).trigger('input');
         
         // Handle background image file selection
         $('#backgroundImageInput').on('change', function(e) {
