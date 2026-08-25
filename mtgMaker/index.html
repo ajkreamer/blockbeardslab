@@ -1,217 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MTG Maker</title>
 
-    <title>MTG Maker</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+            @font-face {
+                font-family: 'Beleren';
+                src: url('fonts/Beleren2016-Bold.ttf') format('truetype');
+            }
 
-    <style>
-        @font-face {
-            font-family: 'Beleren';
-            src: url('fonts/Beleren2016-Bold.ttf') format('truetype');
-        }
+            @font-face {
+                font-family: 'BelerenCaps';
+                src: url('fonts/Beleren2016SmallCaps-Bold.ttf') format('truetype');
+            }
 
-        @font-face {
-            font-family: 'BelerenCaps';
-            src: url('fonts/Beleren2016SmallCaps-Bold.ttf') format('truetype');
-        }
+            @font-face {
+                font-family: 'MPlantin';
+                src: url('fonts/MPlantin.ttf') format('truetype');
+            }
 
-        @font-face {
-            font-family: 'MPlantin';
-            src: url('fonts/MPlantin.ttf') format('truetype');
-        }
+            @font-face {
+                font-family: 'MPlantinItalic';
+                src: url('fonts/MPlantinItalic.ttf') format('truetype');
+            }
 
-        @font-face {
-            font-family: 'MPlantinItalic';
-            src: url('fonts/MPlantinItalic.ttf') format('truetype');
-        }
+            .color-block {
+                height: 25px !important;
+                width: 25px !important;
+            }
+        
+            #card {
+                border: 0px;
+                width: 1100px !important;
+            }
 
-        .color-block {
-            height: 25px !important;
-            width: 25px !important;
-        }
-    
-        #card {
-            border: 0px;
-            width: 1100px !important;
-        }
+            #card tr {
+                border: 0px;
+            }
 
-        #card tr {
-            border: 0px;
-        }
+            #cardControls {
+                vertical-align: top;
+                padding: 20px;
+                text-align: center;
+            }
 
-        #cardControls {
-            vertical-align: top;
-            padding: 20px;
-            text-align: center;
-        }
+            #cardArt {
+                height: 880px !important;
+                padding: 0px !important;
+                width: 630px !important;
+            }
 
-        #cardArt {
-            height: 880px !important;
-            padding: 0px !important;
-            width: 630px !important;
-        }
+            #cardArtGradient {
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85));
+                height: 880px;
+            }
 
-        #cardArtGradient {
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85));
-            height: 880px;
-        }
+            #cardArtNameBorder {
+                background-image: url('img/cardArtNameBorder.png');
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 132px;
+            }
 
-        #cardArtNameBorder {
-            background-image: url('img/cardArtNameBorder.png');
-            background-position: bottom;
-            background-repeat: no-repeat;
-            height: 132px;
-        }
+            #cardArtNameContainer {
+                height: 132px;
+            }
 
-        #cardArtNameContainer {
-            height: 132px;
-        }
+            /* #cardArtName {
+                color: white;
+                font-family: 'Beleren';
+                font-size: 31px;
+                height: 132px;
+                margin: 0px;
+                padding: 0px;
+                padding-left: 68px;
+                padding-top: 71px;
+                text-shadow: 2px 2px 1px black;
+            } */
 
-        /* #cardArtName {
-            color: white;
-            font-family: 'Beleren';
-            font-size: 31px;
-            height: 132px;
-            margin: 0px;
-            padding: 0px;
-            padding-left: 68px;
-            padding-top: 71px;
-            text-shadow: 2px 2px 1px black;
-        } */
+            #cardTextContainer {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+        </style>
 
-        #cardTextContainer {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="js/html2canvas.min.js"></script>
+    </head>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/html2canvas.min.js"></script>
-</head>
+    <body>
+        <table id="card">
+            <tr>
+                <td id="cardControls">
+                    <div class="input-field">
+                        <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
+                        <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
+                            Art
+                        </button>
 
-<body>
-    <table id="card">
-        <tr>
-            <td id="cardControls">
-                <div class="input-field">
-                    <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
-                    <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
-                        Art
-                    </button>
-
-                    <button class="btn right" id="downloadButton">
-                        Download
-                    </button>
-                </div>
-
-                <div><br><br></div>
-
-                <ul class="collapsible">
-                    <li class="active">
-                        <div class="collapsible-header">Card Name</div>
-                        <div class="collapsible-body">
-                            <div class="row">
-                                <div class="input-field col s2">
-                                    <input id="cardNameFontSize" type="number" value="31">
-                                    <label for="cardNameFontSize">Size</label>
-                                </div>
-                                <div class="input-field col s10">
-                                    <input id="cardName" type="text">
-                                    <label for="cardName">Card Name</label>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- <li>
-                        <div class="collapsible-header">Card Type</div>
-                        <div class="collapsible-body">
-                            <div class="row">
-                                <div class="input-field col s2">
-                                    <input id="cardTypeFontSize" type="number" min="8" max="72" value="18">
-                                    <label for="cardTypeFontSize">Size</label>
-                                </div>
-                                <div class="input-field col s10">
-                                    <input id="cardType" type="text">
-                                    <label for="cardType">Card Type</label>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="collapsible-header">Card Effect</div>
-                        <div class="collapsible-body">
-                            <div class="row">
-                                <div class="input-field col s2">
-                                    <input id="cardEffectFontSize" type="number" min="8" max="72" value="16">
-                                    <label for="cardEffectFontSize">Size</label>
-                                </div>
-                                <div class="input-field col s10">
-                                    <textarea id="cardEffect" class="materialize-textarea"></textarea>
-                                    <label for="cardEffect">Card Effect</label>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="collapsible-header">Power/Toughness</div>
-                        <div class="collapsible-body">
-                            <div class="row">
-                                <div class="input-field col s2">
-                                    <input id="powerToughnessFontSize" type="number" min="8" max="72" value="20">
-                                    <label for="powerToughnessFontSize">Size</label>
-                                </div>
-                                <div class="input-field col s10">
-                                    <input id="powerToughness" type="text">
-                                    <label for="powerToughness">Power/Toughness</label>
-                                </div>
-                            </div>
-                        </div>
-                    </li> -->
-                </ul>
-            </td>
-
-            <td id="cardArt">
-                <div id="cardArtGradient">
-                    <div id="cardArtNameContainer">
-                        <div id="cardArtNameBorder">
-
-                        </div>
-                        <!-- <div id="cardArtNameColoredBackground">
-                            <div id="cardArtNameOverlay">
-                                <span id="cardArtName">Name</span>
-                                <span id="cardArtManaCost"></span>
-                            </div>
-                        </div> -->
+                        <button class="btn right" id="downloadButton">
+                            Download
+                        </button>
                     </div>
 
-                    <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
-                        <!-- <div id="cardArtType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
-                        <div id="cardArtText"             style="padding: 0px; margin: 0px;">
-                            This text needs two box shadows, a highlight and a lowlight
-                            <br>Background is the same image, just repeated vertically
-                        </div>
-                        <div id="cardArtTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
-                        <div id="cardArtCredits"           style="padding: 0px; margin: 0px; height: 72px;">
-                            <span id="cardArtCredit">Art by</span>
-                            <br><span id="cardProxyCredit">Proxy by Blockbeard</span>
-                        </div> -->
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-</body>
+                    <div><br><br></div>
 
+                    <ul class="collapsible">
+                        <li class="active">
+                            <div class="collapsible-header">Card Name</div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <input id="cardNameFontSize" type="number" value="31">
+                                        <label for="cardNameFontSize">Size</label>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input id="cardName" type="text">
+                                        <label for="cardName">Card Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- <li>
+                            <div class="collapsible-header">Card Type</div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <input id="cardTypeFontSize" type="number" min="8" max="72" value="18">
+                                        <label for="cardTypeFontSize">Size</label>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input id="cardType" type="text">
+                                        <label for="cardType">Card Type</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header">Card Effect</div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <input id="cardEffectFontSize" type="number" min="8" max="72" value="16">
+                                        <label for="cardEffectFontSize">Size</label>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <textarea id="cardEffect" class="materialize-textarea"></textarea>
+                                        <label for="cardEffect">Card Effect</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header">Power/Toughness</div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <input id="powerToughnessFontSize" type="number" min="8" max="72" value="20">
+                                        <label for="powerToughnessFontSize">Size</label>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input id="powerToughness" type="text">
+                                        <label for="powerToughness">Power/Toughness</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </td>
+
+                <td id="cardArt">
+                    <div id="cardArtGradient">
+                        <div id="cardArtNameContainer">
+                            <div id="cardArtNameBorder">
+
+                            </div>
+                            <!-- <div id="cardArtNameColoredBackground">
+                                <div id="cardArtNameOverlay">
+                                    <span id="cardArtName">Name</span>
+                                    <span id="cardArtManaCost"></span>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
+                            <!-- <div id="cardArtType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
+                            <div id="cardArtText"             style="padding: 0px; margin: 0px;">
+                                This text needs two box shadows, a highlight and a lowlight
+                                <br>Background is the same image, just repeated vertically
+                            </div>
+                            <div id="cardArtTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
+                            <div id="cardArtCredits"           style="padding: 0px; margin: 0px; height: 72px;">
+                                <span id="cardArtCredit">Art by</span>
+                                <br><span id="cardProxyCredit">Proxy by Blockbeard</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>
 
 <script>
