@@ -56,7 +56,11 @@
             width: 630px !important;
         }
 
-        #cardArtName {
+        #cardArtNameContainer {
+            height: 132px;
+        }
+
+        /* #cardArtName {
             color: white;
             font-family: 'Beleren';
             font-size: 31px;
@@ -65,8 +69,8 @@
             padding: 0px;
             padding-left: 68px;
             padding-top: 71px;
-            text-shadow: 2px 2px 2px black;
-        }
+            text-shadow: 2px 2px 1px black;
+        } */
 
         #cardTextContainer {
             display: flex;
@@ -114,7 +118,7 @@
                         </div>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <div class="collapsible-header">Card Type</div>
                         <div class="collapsible-body">
                             <div class="row">
@@ -160,24 +164,18 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </td>
 
             <td id="cardArt">
-                <div id="cardArtNameColoredBorder">
-                    <div id="cardArtNameColoredBackground">
-                        <div id="cardArtNameClouds">
-                            <div id="cardArtNameShadows">
-                                <div id="cardArtNameShadowsHighlight">
-                                    <div id="cardArtNameBorders">
-                                        <span id="cardArtName">Name</span>
-                                        <span id="cardArtManaCost"></span>
-                                    </div>
-                                </div>
-                            </div>
+                <div id="cardArtNameContainer" class="red">
+                    <!-- <div id="cardArtNameColoredBackground">
+                        <div id="cardArtNameOverlay">
+                            <span id="cardArtName">Name</span>
+                            <span id="cardArtManaCost"></span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
