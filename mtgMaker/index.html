@@ -61,7 +61,9 @@
             }
 
             #cardArtNameBorder {
-                background-image: url('img/cardArtNameBorder.png');
+                --name-border-tint: rgb(255, 255, 255);
+                background-image: linear-gradient(var(--name-border-tint), var(--name-border-tint)), url('img/cardArtNameBorder.png');
+                background-blend-mode: multiply;
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -87,7 +89,9 @@
             }
 
             #cardArtNamePlate::before {
-                background-image: url('img/cardArtNamePlate.png');
+                --name-plate-tint: rgb(255, 255, 255);
+                background-image: linear-gradient(var(--name-plate-tint), var(--name-plate-tint)), url('img/cardArtNamePlate.png');
+                background-blend-mode: multiply;
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -308,6 +312,13 @@
 
             $('#cardArtNamePlate').css('--name-plate-bg-opacity', opacity);
         }).trigger('input');
+
+        // Tint name border and plate from selected swatch color
+        $('.color').on('click', function() {
+            const selectedColor = $(this).css('background-color');
+            $('#cardArtNameBorder').css('--name-border-tint', selectedColor);
+            $('#cardArtNamePlate').css('--name-plate-tint', selectedColor);
+        });
         
         // Handle background image file selection
         $('#backgroundImageInput').on('change', function(e) {
