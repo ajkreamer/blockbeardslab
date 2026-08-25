@@ -306,7 +306,30 @@
             const height = canvas.height;
 
             ctx.clearRect(0, 0, width, height);
-            ctx.drawImage(layer.image, 0, 0, width, height);
+            const imageWidth = layer.image.naturalWidth;
+            const imageHeight = layer.image.naturalHeight;
+            const imageRatio = imageWidth / imageHeight;
+            const canvasRatio = width / height;
+
+            let drawWidth;
+            let drawHeight;
+            let drawX;
+            let drawY;
+
+            // Draw using "cover" behavior to keep aspect ratio without squishing.
+            if (imageRatio > canvasRatio) {
+                drawHeight = height;
+                drawWidth = drawHeight * imageRatio;
+                drawX = (width - drawWidth) / 2;
+                drawY = 0;
+            } else {
+                drawWidth = width;
+                drawHeight = drawWidth / imageRatio;
+                drawX = 0;
+                drawY = (height - drawHeight) / 2;
+            }
+
+            ctx.drawImage(layer.image, drawX, drawY, drawWidth, drawHeight);
 
             if (!rgb) return;
 
