@@ -56,6 +56,11 @@
             width: 630px !important;
         }
 
+        #cardArtGradient {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+            height: 880px;
+        }
+
         #cardArtNameBorder {
             background-image: url('img/cardArtNameBorder.png');
             height: 132px;
@@ -174,29 +179,31 @@
             </td>
 
             <td id="cardArt">
-                <div id="cardArtNameContainer">
-                    <div id="cardArtNameBorder">
+                <div id="cardArtGradient">
+                    <div id="cardArtNameContainer">
+                        <div id="cardArtNameBorder">
 
-                    </div>
-                    <!-- <div id="cardArtNameColoredBackground">
-                        <div id="cardArtNameOverlay">
-                            <span id="cardArtName">Name</span>
-                            <span id="cardArtManaCost"></span>
                         </div>
-                    </div> -->
-                </div>
-
-                <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
-                    <!-- <div id="cardArtType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
-                    <div id="cardArtText"             style="padding: 0px; margin: 0px;">
-                        This text needs two box shadows, a highlight and a lowlight
-                        <br>Background is the same image, just repeated vertically
+                        <!-- <div id="cardArtNameColoredBackground">
+                            <div id="cardArtNameOverlay">
+                                <span id="cardArtName">Name</span>
+                                <span id="cardArtManaCost"></span>
+                            </div>
+                        </div> -->
                     </div>
-                    <div id="cardArtTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
-                    <div id="cardArtCredits"           style="padding: 0px; margin: 0px; height: 72px;">
-                        <span id="cardArtCredit">Art by</span>
-                        <br><span id="cardProxyCredit">Proxy by Blockbeard</span>
-                    </div> -->
+
+                    <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px;">
+                        <!-- <div id="cardArtType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
+                        <div id="cardArtText"             style="padding: 0px; margin: 0px;">
+                            This text needs two box shadows, a highlight and a lowlight
+                            <br>Background is the same image, just repeated vertically
+                        </div>
+                        <div id="cardArtTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
+                        <div id="cardArtCredits"           style="padding: 0px; margin: 0px; height: 72px;">
+                            <span id="cardArtCredit">Art by</span>
+                            <br><span id="cardProxyCredit">Proxy by Blockbeard</span>
+                        </div> -->
+                    </div>
                 </div>
             </td>
         </tr>
