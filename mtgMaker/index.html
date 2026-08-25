@@ -78,7 +78,7 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: 132px;
-                opacity: 80%;
+                opacity: 0.8;
             }
 
             /* #cardArtName {
@@ -131,9 +131,17 @@
                                         <input id="cardNameFontSize" type="number" value="31">
                                         <label for="cardNameFontSize">Size</label>
                                     </div>
+
                                     <div class="input-field col s10">
                                         <input id="cardName" type="text">
                                         <label for="cardName">Card Name</label>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <p class="range-field" style="margin-top: 0;">
+                                            <input id="cardNamePlateOpacity" type="range" min="0" max="100" value="80">
+                                        </p>
+                                        <label for="cardNamePlateOpacity" class="active">Name Plate Opacity</label>
                                     </div>
                                 </div>
                             </div>
@@ -237,6 +245,12 @@
         // Keep the card preview name size in sync with the font size input
         $('#cardNameFontSize').on('input', function() {
             $('#cardArtName').css('font-size', `${$(this).val()}px`);
+        }).trigger('input');
+
+        // Control name plate background opacity
+        $('#cardNamePlateOpacity').on('input', function() {
+            const opacity = Number($(this).val()) / 100;
+            $('#cardArtNamePlate').css('opacity', opacity);
         }).trigger('input');
         
         // Handle background image file selection
