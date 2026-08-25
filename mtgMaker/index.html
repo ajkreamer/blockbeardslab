@@ -139,7 +139,7 @@
 
                                     <div class="input-field col s12">
                                         <p class="range-field" style="margin-top: 0;">
-                                            <input id="cardNamePlateOpacity" type="range" min="0" max="100" value="80">
+                                            <input id="cardNamePlateOpacity" class="tooltipped" type="range" min="0" max="100" value="80" data-position="top" data-tooltip="80%" title="80%">
                                         </p>
                                         <label for="cardNamePlateOpacity" class="active">Name Plate Opacity</label>
                                     </div>
@@ -236,6 +236,7 @@
     $(function () {
         // Initialize collapsibles
         $('.collapsible').collapsible();
+        $('.tooltipped').tooltip();
 
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
@@ -249,7 +250,19 @@
 
         // Control name plate background opacity
         $('#cardNamePlateOpacity').on('input', function() {
+            const opacityPercent = `${$(this).val()}%`;
             const opacity = Number($(this).val()) / 100;
+            $(this).attr('data-tooltip', opacityPercent);
+            $(this).attr('title', opacityPercent);
+
+            const tooltipInstance = M.Tooltip.getInstance(this);
+            if (tooltipInstance && tooltipInstance.tooltipEl) {
+                const tooltipContent = tooltipInstance.tooltipEl.querySelector('.tooltip-content');
+                if (tooltipContent) {
+                    tooltipContent.textContent = opacityPercent;
+                }
+            }
+
             $('#cardArtNamePlate').css('opacity', opacity);
         }).trigger('input');
         
