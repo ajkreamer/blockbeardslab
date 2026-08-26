@@ -322,7 +322,7 @@
             const swatchColor = $(this).data('color');
             
             $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-` + swatchColor + `.png')`);
-            //$('#cardArtNamePlate').css('--name-plate-color', swatchColor);
+            $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-` + swatchColor + `.png')`);
         });
 
         // Control name plate background opacity
