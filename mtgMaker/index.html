@@ -29,11 +29,6 @@
                 src: url('fonts/MPlantinItalic.ttf') format('truetype');
             }
 
-            .color-block {
-                height: 25px !important;
-                width: 25px !important;
-            }
-        
             #card {
                 border: 0px;
                 width: 1100px !important;
@@ -159,6 +154,11 @@
             .color.gold {
                 background-color: #8e8451;
             }
+
+            .color-block {
+                height: 25px !important;
+                width: 25px !important;
+            }
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -187,13 +187,13 @@
                         <li class="active">
                             <div class="collapsible-header">Colors</div>
                             <div class="collapsible-body white">
-                                <span class="color z-depth-1 white">&nbsp;</span>
-                                <span class="color z-depth-1 blue">&nbsp;</span>
-                                <span class="color z-depth-1 grey darken-3">&nbsp;</span>
-                                <span class="color z-depth-1 red">&nbsp;</span>
-                                <span class="color z-depth-1 green">&nbsp;</span>
-                                <span class="color z-depth-1 grey lighten-1">&nbsp;</span>
-                                <span class="color z-depth-1 gold">&nbsp;</span>
+                                <span class="color z-depth-1 white"          data-color="white">&nbsp;</span>
+                                <span class="color z-depth-1 blue"           data-color="blue"> &nbsp;</span>
+                                <span class="color z-depth-1 grey darken-3"  data-color="black">&nbsp;</span>
+                                <span class="color z-depth-1 red"            data-color="red">  &nbsp;</span>
+                                <span class="color z-depth-1 green"          data-color="green">&nbsp;</span>
+                                <span class="color z-depth-1 grey lighten-1" data-color="gray"> &nbsp;</span>
+                                <span class="color z-depth-1 gold"           data-color="gold"> &nbsp;</span>
                             </div>
                         </li>
 
@@ -319,9 +319,9 @@
 
         // Recolor the non-transparent parts of the name border/plate images when a color swatch is clicked
         $('.color').on('click', function() {
-            const swatchColor = $(this).css('background-color');
-            $('#cardArtNameBorder').addClass('color-tinted').css('--name-border-color', swatchColor);
-            $('#cardArtNamePlate').addClass('color-tinted').css('--name-plate-color', swatchColor);
+            const swatchColor = $(this).data('color');
+            $('#cardArtNameBorder').css('background-image', `url(img/${swatchColor}.png)`);
+            //$('#cardArtNamePlate').css('--name-plate-color', swatchColor);
         });
 
         // Control name plate background opacity
