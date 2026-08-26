@@ -61,17 +61,11 @@
             }
 
             #cardArtNameBorder {
+                background-image: url('img/cardArtNameBorder.png');
+                background-position: top;
+                background-repeat: no-repeat;
+                background-size: cover;
                 height: 132px;
-                position: relative;
-            }
-
-            #cardArtNameBorderCanvas {
-                height: 100%;
-                inset: 0;
-                pointer-events: none;
-                position: absolute;
-                width: 100%;
-                z-index: 0;
             }
 
             #cardArtNameContainer {
@@ -87,22 +81,25 @@
             }
 
             #cardArtNamePlate {
+                --name-plate-bg-opacity: 0.8;
                 height: 132px;
                 position: relative;
-                z-index: 1;
             }
 
-            #cardArtNamePlateCanvas {
-                height: 100%;
+            #cardArtNamePlate::before {
+                background-image: url('img/cardArtNamePlate.png');
+                background-position: top;
+                background-repeat: no-repeat;
+                background-size: cover;
+                content: '';
                 inset: 0;
-                opacity: 0.8;
+                opacity: var(--name-plate-bg-opacity);
                 pointer-events: none;
                 position: absolute;
                 z-index: 0;
-                width: 100%;
             }
 
-            #cardArtNameOverlay {
+            #cardArtNamePlate > * {
                 position: relative;
                 z-index: 1;
             }
@@ -250,9 +247,7 @@
                     <div id="cardArtGradient">
                         <div id="cardArtNameContainer">
                             <div id="cardArtNameBorder">
-                                <canvas id="cardArtNameBorderCanvas"></canvas>
                                 <div id="cardArtNamePlate">
-                                    <canvas id="cardArtNamePlateCanvas"></canvas>
                                     <div id="cardArtNameOverlay">
                                         <span id="cardArtName">Name</span>
                                         <span id="cardArtNameManaCost" class="right"></span>
@@ -282,95 +277,9 @@
 
 <script>
     $(function () {
-        const namePlateLayers = {
-            border: null,
-            plate: null,
-            activeColor: null
-        };
-
-        function parseRgbColor(cssColor) {
-            const values = (cssColor.match(/\d+/g) || []).map(Number);
-            return {
-                r: values[0] || 0,
-                g: values[1] || 0,
-                b: values[2] || 0
-            };
-        }
-
-        function redrawLayer(layer, rgb) {
-            if (!layer || !layer.image.complete) return;
-
-            const canvas = layer.canvas;
-            const ctx = layer.ctx;
-            const width = canvas.width;
-            const height = canvas.height;
-
-            ctx.clearRect(0, 0, width, height);
-            const imageWidth = layer.image.naturalWidth;
-            const imageHeight = layer.image.naturalHeight;
-            const imageRatio = imageWidth / imageHeight;
-            const canvasRatio = width / height;
-
-            let drawWidth;
-            let drawHeight;
-            let drawX;
-            let drawY;
-
-            // Draw using "cover" behavior to keep aspect ratio without squishing.
-            if (imageRatio > canvasRatio) {
-                drawHeight = height;
-                drawWidth = drawHeight * imageRatio;
-                drawX = (width - drawWidth) / 2;
-                drawY = 0;
-            } else {
-                drawWidth = width;
-                drawHeight = drawWidth / imageRatio;
-                drawX = 0;
-                drawY = (height - drawHeight) / 2;
-            }
-
-            ctx.drawImage(layer.image, drawX, drawY, drawWidth, drawHeight);
-
-            if (!rgb) return;
-
-            const imageData = ctx.getImageData(0, 0, width, height);
-            const data = imageData.data;
-
-            for (let i = 0; i < data.length; i += 4) {
-                if (data[i + 3] !== 0) {
-                    data[i] = rgb.r;
-                    data[i + 1] = rgb.g;
-                    data[i + 2] = rgb.b;
-                }
-            }
-
-            ctx.putImageData(imageData, 0, 0);
-        }
-
-        function initNamePlateLayer(canvasSelector, imagePath) {
-            const canvas = document.querySelector(canvasSelector);
-            const ctx = canvas.getContext('2d');
-            const image = new Image();
-
-            canvas.width = canvas.clientWidth;
-            canvas.height = canvas.clientHeight;
-
-            const layer = { canvas, ctx, image };
-            image.onload = function() {
-                redrawLayer(layer, namePlateLayers.activeColor);
-            };
-            image.src = imagePath;
-
-            return layer;
-        }
-
         // Initialize collapsibles
         $('.collapsible').collapsible();
         $('.tooltipped').tooltip();
-
-        // Prepare name plate image layers for pixel recoloring
-        namePlateLayers.border = initNamePlateLayer('#cardArtNameBorderCanvas', 'img/cardArtNameBorder.png');
-        namePlateLayers.plate = initNamePlateLayer('#cardArtNamePlateCanvas', 'img/cardArtNamePlate.png');
 
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
@@ -397,16 +306,8 @@
                 }
             }
 
-            $('#cardArtNamePlateCanvas').css('opacity', opacity);
+            $('#cardArtNamePlate').css('--name-plate-bg-opacity', opacity);
         }).trigger('input');
-
-        // Recolor all non-transparent pixels in border and plate layers
-        $('.color').on('click', function() {
-            const selectedColor = parseRgbColor($(this).css('background-color'));
-            namePlateLayers.activeColor = selectedColor;
-            redrawLayer(namePlateLayers.border, selectedColor);
-            redrawLayer(namePlateLayers.plate, selectedColor);
-        });
         
         // Handle background image file selection
         $('#backgroundImageInput').on('change', function(e) {
