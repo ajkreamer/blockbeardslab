@@ -68,6 +68,19 @@
                 height: 132px;
             }
 
+            #cardArtNameBorder.color-tinted {
+                background-color: var(--name-border-color, #8e8451);
+                background-image: none;
+                -webkit-mask-image: url('img/cardArtNameBorder.png');
+                mask-image: url('img/cardArtNameBorder.png');
+                -webkit-mask-position: top;
+                mask-position: top;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-size: cover;
+                mask-size: cover;
+            }
+
             #cardArtNameContainer {
                 height: 132px;
             }
@@ -97,6 +110,19 @@
                 pointer-events: none;
                 position: absolute;
                 z-index: 0;
+            }
+
+            #cardArtNamePlate.color-tinted::before {
+                background-color: var(--name-plate-color, #8e8451);
+                background-image: none;
+                -webkit-mask-image: url('img/cardArtNamePlate.png');
+                mask-image: url('img/cardArtNamePlate.png');
+                -webkit-mask-position: top;
+                mask-position: top;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-size: cover;
+                mask-size: cover;
             }
 
             #cardArtNamePlate > * {
@@ -290,6 +316,13 @@
         $('#cardNameFontSize').on('input', function() {
             $('#cardArtName').css('font-size', `${$(this).val()}px`);
         }).trigger('input');
+
+        // Recolor the non-transparent parts of the name border/plate images when a color swatch is clicked
+        $('.color').on('click', function() {
+            const swatchColor = $(this).css('background-color');
+            $('#cardArtNameBorder').addClass('color-tinted').css('--name-border-color', swatchColor);
+            $('#cardArtNamePlate').addClass('color-tinted').css('--name-plate-color', swatchColor);
+        });
 
         // Control name plate background opacity
         $('#cardNamePlateOpacity').on('input', function() {
