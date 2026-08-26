@@ -320,7 +320,8 @@
         // Recolor the non-transparent parts of the name border/plate images when a color swatch is clicked
         $('.color').on('click', function() {
             const swatchColor = $(this).data('color');
-            $('#cardArtNameBorder').css('background-image', `url('img/` + swatchColor + `.png')`);
+
+            $('#cardArtNameBorder').attr('style', "background-image: url('img/" + swatchColor + ".png');");
             //$('#cardArtNamePlate').css('--name-plate-color', swatchColor);
         });
 
