@@ -148,7 +148,7 @@
 
                     <div><br><br></div>
 
-                    <div class="white">
+                    <div class="white" style="padding: 25px;">
                         <h4>Settings</h4>
                         <div>
                             <span class="color z-depth-1 white"          data-color="white">&nbsp;</span>
@@ -160,7 +160,8 @@
                             <span class="color z-depth-1 gold"           data-color="gold"> &nbsp;</span>
                         </div>
 
-                        <h4>Card Name</h4>
+                        <hr>
+
                         <div class="row">
                             <div class="input-field col s2">
                                 <input id="cardNameFontSize" type="number" value="31">
@@ -178,11 +179,17 @@
                             </div>
                         </div>
 
-                        <h4>Card Credits</h4>
+                        <hr>
+
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s2">
                                 <input id="cardCreditsFontSize" type="number" value="16" min="8" max="72">
                                 <label for="cardCreditsFontSize">Font Size</label>
+                            </div>
+
+                            <div class="input-field col s10">
+                                <input id="cardArtist" type="text">
+                                <label for="cardArtist">Card Artist</label>
                             </div>
                         </div>
                     </div>
@@ -250,7 +257,7 @@
                         </div>
 
                         <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px; display: flex; align-items: flex-end;">
-                            <div id="cardCredits" class="red" style="width: 100%;">
+                            <div id="cardCredits" class="red" style="width: 100%; padding-bottom: 25px; padding-left: 25px;">
                                 Art by <span id="cardArtArtist"></span>
                                 <br>Proxy by Blockbeard
                             </div>
@@ -291,6 +298,11 @@
         // Keep the card credits size in sync with the font size input
         $('#cardCreditsFontSize').on('input', function() {
             $('#cardCredits').css('font-size', `${$(this).val()}px`);
+        }).trigger('input');
+
+        // Keep the card artist preview in sync with the input
+        $('#cardArtist').on('input', function() {
+            $('#cardArtArtist').text($(this).val());
         }).trigger('input');
 
         // Recolor the non-transparent parts of the name border/plate images when a color swatch is clicked
