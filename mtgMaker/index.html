@@ -198,6 +198,25 @@
                                 <label for="cardArtist">Card Artist</label>
                             </div>
                         </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <select id="cardArtBackgroundPosition">
+                                    <option value="top left">Top Left</option>
+                                    <option value="top">Top</option>
+                                    <option value="top right">Top Right</option>
+                                    <option value="left">Left</option>
+                                    <option value="center" selected>Center</option>
+                                    <option value="right">Right</option>
+                                    <option value="bottom left">Bottom Left</option>
+                                    <option value="bottom">Bottom</option>
+                                    <option value="bottom right">Bottom Right</option>
+                                </select>
+                                <label>Art Position</label>
+                            </div>
+                        </div>
                     </div>
 
                         <!-- <li>
@@ -290,6 +309,7 @@
         // Initialize collapsibles
         $('.collapsible').collapsible();
         $('.tooltipped').tooltip();
+        $('select').formSelect();
 
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
@@ -337,6 +357,11 @@
             $('#cardArtNamePlate').css('--name-plate-bg-opacity', opacity);
         }).trigger('input');
         
+        // Keep the card art background position in sync with the select
+        $('#cardArtBackgroundPosition').on('change', function() {
+            $('#cardArt').css('background-position', $(this).val());
+        });
+
         // Handle background image file selection
         $('#backgroundImageInput').on('change', function(e) {
             const file = e.target.files[0];
