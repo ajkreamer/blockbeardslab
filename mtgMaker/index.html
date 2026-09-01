@@ -156,6 +156,7 @@
 
                     <div class="white" style="padding: 25px;">
                         <h4>Settings</h4>
+                        <table id="colorsTable"></table>
                         <div>
                             <span class="color z-depth-1 white"          data-color="white">&nbsp;</span>
                             <span class="color z-depth-1 blue"           data-color="blue"> &nbsp;</span>
@@ -310,6 +311,25 @@
         $('.collapsible').collapsible();
         $('.tooltipped').tooltip();
         $('select').formSelect();
+
+        // Create table for color options
+        var colors = ['white', 'blue', 'black', 'red', 'green'];
+        for (var i = 0; i < colors.length; i++) {
+            var btnString = '<tr>';
+            
+            for (var j = 0; j < colors.length; j++) {
+                if (i == 0) btnString += '<td class="' + colors[j] + '">&nbsp;</td>';
+                else btnString += '<td class="' + colors[i] + ' ' + colors[i] + '-to-' + colors[j] + '-gradient">&nbsp;</td>';
+            }
+            if (i == 0) {
+                btnString += '<td class="grey lighten-1">&nbsp;</td>';
+                btnString += '<td class="gold">&nbsp;</td>';
+            }
+            
+            btnString += '</tr>';
+
+            $('#colorsTable').append(btnString);
+        }
 
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
