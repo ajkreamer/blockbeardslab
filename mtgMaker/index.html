@@ -219,54 +219,6 @@
                             </div>
                         </div>
                     </div>
-
-                        <!-- <li>
-                            <div class="collapsible-header">Card Type</div>
-                            <div class="collapsible-body">
-                                <div class="row">
-                                    <div class="input-field col s2">
-                                        <input id="cardTypeFontSize" type="number" min="8" max="72" value="18">
-                                        <label for="cardTypeFontSize">Size</label>
-                                    </div>
-                                    <div class="input-field col s10">
-                                        <input id="cardType" type="text">
-                                        <label for="cardType">Card Type</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="collapsible-header">Card Effect</div>
-                            <div class="collapsible-body">
-                                <div class="row">
-                                    <div class="input-field col s2">
-                                        <input id="cardEffectFontSize" type="number" min="8" max="72" value="16">
-                                        <label for="cardEffectFontSize">Size</label>
-                                    </div>
-                                    <div class="input-field col s10">
-                                        <textarea id="cardEffect" class="materialize-textarea"></textarea>
-                                        <label for="cardEffect">Card Effect</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="collapsible-header">Power/Toughness</div>
-                            <div class="collapsible-body">
-                                <div class="row">
-                                    <div class="input-field col s2">
-                                        <input id="powerToughnessFontSize" type="number" min="8" max="72" value="20">
-                                        <label for="powerToughnessFontSize">Size</label>
-                                    </div>
-                                    <div class="input-field col s10">
-                                        <input id="powerToughness" type="text">
-                                        <label for="powerToughness">Power/Toughness</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> -->
                 </td>
 
                 <td id="cardArt" class="white z-depth-1">
@@ -287,16 +239,6 @@
                                 Art by <span id="cardArtArtist"></span>
                                 <br>Proxy by Blockbeard
                             </div>
-                            <!-- <div id="cardArtType"             style="padding: 0px; margin: 0px; height: 57px;">Type</div>
-                            <div id="cardArtText"             style="padding: 0px; margin: 0px;">
-                                This text needs two box shadows, a highlight and a lowlight
-                                <br>Background is the same image, just repeated vertically
-                            </div>
-                            <div id="cardArtTextBottomBorder" style="padding: 0px; margin: 0px; height: 5px;">&nbsp;</div>
-                            <div id="cardArtCredits"           style="padding: 0px; margin: 0px; height: 72px;">
-                                <span id="cardArtCredit">Art by</span>
-                                <br><span id="cardProxyCredit">Proxy by Blockbeard</span>
-                            </div> -->
                         </div>
                     </div>
                 </td>
@@ -311,25 +253,6 @@
         $('.collapsible').collapsible();
         $('.tooltipped').tooltip();
         $('select').formSelect();
-
-        // Create table for color options
-        var colors = ['white', 'blue', 'black', 'red', 'green'];
-        for (var i = 0; i < colors.length; i++) {
-            var btnString = '<tr>';
-            
-            for (var j = 0; j < colors.length; j++) {
-                if (i == 0) btnString += '<td class="color color-block ' + colors[j] + ' z-depth-1">&nbsp;</td>';
-                else btnString += '<td class="color color-block ' + colors[i] + ' ' + colors[i] + '-to-' + colors[j] + '-gradient z-depth-1">&nbsp;</td>';
-            }
-            if (i == 0) {
-                btnString += '<td class="color color-block grey lighten-1 z-depth-1">&nbsp;</td>';
-                btnString += '<td class="color color-block gold z-depth-1">&nbsp;</td>';
-            }
-            
-            btnString += '</tr>';
-
-            $('#colorsTable').append(btnString);
-        }
 
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
