@@ -318,12 +318,12 @@
             var btnString = '<tr>';
             
             for (var j = 0; j < colors.length; j++) {
-                if (i == 0) btnString += '<td class="' + colors[j] + '">&nbsp;</td>';
-                else btnString += '<td class="' + colors[i] + ' ' + colors[i] + '-to-' + colors[j] + '-gradient">&nbsp;</td>';
+                if (i == 0) btnString += '<td class="color-block ' + colors[j] + '">&nbsp;</td>';
+                else btnString += '<td class="color-block ' + colors[i] + ' ' + colors[i] + '-to-' + colors[j] + '-gradient">&nbsp;</td>';
             }
             if (i == 0) {
-                btnString += '<td class="grey lighten-1">&nbsp;</td>';
-                btnString += '<td class="gold">&nbsp;</td>';
+                btnString += '<td class="color-block grey lighten-1">&nbsp;</td>';
+                btnString += '<td class="color-block gold">&nbsp;</td>';
             }
             
             btnString += '</tr>';
