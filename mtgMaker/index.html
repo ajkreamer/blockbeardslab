@@ -58,6 +58,11 @@
                 height: 880px;
             }
 
+            #cardArtManaCost {
+                margin-right: 70px;
+                margin-top: 72px;
+            }
+
             #cardArtNameBorder {
                 background-image: url('img/cardArtNameBorder.png');
                 background-position: top;
@@ -107,6 +112,7 @@
                 background-color: #000;
                 border-radius: 50%;
                 height: 31px !important;
+                margin-left: 1px;
                 width: 31px !important;
             }
         </style>
@@ -189,7 +195,7 @@
                                 <div id="cardArtNamePlate" style="background-image: url('img/cardArtNamePlate.png');">
                                     <div id="cardArtNameOverlay">
                                         <span id="cardArtName">Name</span>
-                                        <span id="cardArtManaCost" class="right" style="margin-right: 10px; margin-top: 10px;"></span>
+                                        <span id="cardArtManaCost" class="right"></span>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +229,7 @@
 
             var manaCostHtml = '';
             for (var i = 0; i < manaCost.length; i++) {
-                manaCostHtml += `<span class="mana-cost"><img src="img/cost/0.png" width="31" height="31"></span>`;
+                manaCostHtml += `<span class="mana-cost"><img src="img/cost/0.png" width="30" height="30"></span>`;
             }
 
             $('#cardArtManaCost').html(manaCostHtml);
