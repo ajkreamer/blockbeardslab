@@ -102,6 +102,13 @@
                 padding-bottom: 35px;
                 padding-left: 60px;
             }
+
+            .mana-cost {
+                background-color: #000;
+                border-radius: 50%;
+                height: 31px;
+                width: 31px;
+            }
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -182,7 +189,7 @@
                                 <div id="cardArtNamePlate" style="background-image: url('img/cardArtNamePlate.png');">
                                     <div id="cardArtNameOverlay">
                                         <span id="cardArtName">Name</span>
-                                        <span id="cardArtManaCost" class="right"></span>
+                                        <span id="cardArtManaCost" class="right" style="margin-right: 10px; margin-top: 10px;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +219,14 @@
 
         // Keep the mana cost preview in sync with the input
         $('#cardCost').on('input', function() {
-            $('#cardArtManaCost').text($(this).val());
+            var manaCost = $('#cardCost').val().split(',');
+
+            var manaCostHtml = '';
+            for (var i = 0; i < manaCost.length; i++) {
+                manaCostHtml += `<span class="mana-cost">${manaCost[i]}</span>`;
+            }
+
+            $('#cardArtManaCost').html(manaCostHtml);
         }).trigger('input');
 
         // Keep the card preview name size in sync with the font size input
