@@ -99,36 +99,12 @@
                 text-shadow: 2px 2px 1px black;
             }
 
-            #cardTextContainer {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                height: 100%;
-            }
-
             #cardCredits {
                 color: white;
                 font-family: 'BelerenCaps';
                 font-size: 13px;
                 padding-bottom: 35px;
                 padding-left: 60px;
-            }
-
-            .color {
-                cursor: pointer;
-                display: inline-block;
-                height: 25px;
-                margin: 5px;
-                width: 25px;
-            }
-
-            .color.gold {
-                background-color: #8e8451;
-            }
-
-            .color-block {
-                height: 25px !important;
-                width: 25px !important;
             }
         </style>
 
@@ -152,23 +128,9 @@
                         </button>
                     </div>
 
-                    <div><br><br></div>
-
                     <div class="white" style="padding: 25px;">
                         <h4>Settings</h4>
-                        <table id="colorsTable"></table>
-                        <div>
-                            <span class="color z-depth-1 white"          data-color="white">&nbsp;</span>
-                            <span class="color z-depth-1 blue"           data-color="blue"> &nbsp;</span>
-                            <span class="color z-depth-1 grey darken-3"  data-color="black">&nbsp;</span>
-                            <span class="color z-depth-1 red"            data-color="red">  &nbsp;</span>
-                            <span class="color z-depth-1 green"          data-color="green">&nbsp;</span>
-                            <span class="color z-depth-1 grey lighten-1" data-color="gray"> &nbsp;</span>
-                            <span class="color z-depth-1 gold"           data-color="gold"> &nbsp;</span>
-                        </div>
-
-                        <hr>
-
+                        
                         <div class="row">
                             <div class="input-field col s2">
                                 <input id="cardNameFontSize" type="number" value="31">
@@ -249,8 +211,6 @@
 
 <script>
     $(function () {
-        // Initialize collapsibles
-        $('.collapsible').collapsible();
         $('.tooltipped').tooltip();
         $('select').formSelect();
 
@@ -273,14 +233,6 @@
         $('#cardArtist').on('input', function() {
             $('#cardArtArtist').text($(this).val());
         }).trigger('input');
-
-        // Recolor the non-transparent parts of the name border/plate images when a color swatch is clicked
-        $('.color').on('click', function() {
-            const swatchColor = $(this).data('color');
-            
-            $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-` + swatchColor + `.png')`);
-            $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-` + swatchColor + `.png')`);
-        });
 
         // Control name plate background opacity
         $('#cardNamePlateOpacity').on('input', function() {
