@@ -142,11 +142,6 @@
                                 <input id="cardCost" type="text">
                                 <label for="cardCost">Cost</label>
                             </div>
-
-                            <div class="input-field col s12">
-                                <input id="cardNamePlateOpacity" class="tooltipped" type="range" min="0" max="100" value="70" data-position="top" data-tooltip="70%" title="70%">
-                                <label for="cardNamePlateOpacity" class="active">Text Plate Opacity</label>
-                            </div>
                         </div>
 
                         <div class="row">
@@ -208,7 +203,6 @@
 
 <script>
     $(function () {
-        $('.tooltipped').tooltip();
         $('select').formSelect();
 
         // Keep the card preview name in sync with the input
@@ -236,24 +230,6 @@
             $('#cardArtArtist').text($(this).val());
         }).trigger('input');
 
-        // Control name plate background opacity
-        $('#cardNamePlateOpacity').on('input', function() {
-            const opacityPercent = `${$(this).val()}%`;
-            const opacity = Number($(this).val()) / 100;
-            $(this).attr('data-tooltip', opacityPercent);
-            $(this).attr('title', opacityPercent);
-
-            const tooltipInstance = M.Tooltip.getInstance(this);
-            if (tooltipInstance && tooltipInstance.tooltipEl) {
-                const tooltipContent = tooltipInstance.tooltipEl.querySelector('.tooltip-content');
-                if (tooltipContent) {
-                    tooltipContent.textContent = opacityPercent;
-                }
-            }
-
-            $('#cardArtNamePlate').css('--name-plate-bg-opacity', opacity);
-        }).trigger('input');
-        
         // Keep the card art background position in sync with the select
         $('#cardArtBackgroundPosition').on('change', function() {
             $('#cardArt').css('background-position', $(this).val());
