@@ -234,7 +234,7 @@
 
             var manaCostHtml = '';
             for (var i = 0; i < manaCost.length; i++) {
-                manaCostHtml += `<span class="mana-cost"><img class="mana-cost-symbol" src="img/cost/` + manaCost[i] + `.png"></span>`;
+                if (manaCost[i].length) manaCostHtml += `<span class="mana-cost"><img class="mana-cost-symbol" src="img/cost/` + manaCost[i] + `.png"></span>`;
             }
 
             $('#cardArtManaCost').html(manaCostHtml);
