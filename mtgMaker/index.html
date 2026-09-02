@@ -176,7 +176,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <select id="cardArtBackgroundPosition">
                                     <option value="top left">       Top Left</option>
                                     <option value="top">            Top</option>
@@ -189,6 +189,16 @@
                                     <option value="bottom right">   Bottom Right</option>
                                 </select>
                                 <label>Art Position</label>
+                            </div>
+
+                            <div class="input-field col s3">
+                                <input id="cardArtBackgroundX" type="number" value="0">
+                                <label for="cardArtBackgroundX">Background X Offset</label>
+                            </div>
+
+                            <div class="input-field col s3">
+                                <input id="cardArtBackgroundY" type="number" value="0">
+                                <label for="cardArtBackgroundY">Background Y Offset</label>
                             </div>
                         </div>
                     </div>
@@ -224,6 +234,33 @@
     $(function () {
         $('select').formSelect();
 
+        const artBackgroundState = {
+            position: 'center',
+            x: 0,
+            y: 0
+        };
+
+        function updateArtBackgroundPosition() {
+            const positionMap = {
+                left: ['0%', '50%'],
+                center: ['50%', '50%'],
+                right: ['100%', '50%'],
+                top: ['50%', '0%'],
+                bottom: ['50%', '100%'],
+                'top left': ['0%', '0%'],
+                'top right': ['100%', '0%'],
+                'bottom left': ['0%', '100%'],
+                'bottom right': ['100%', '100%']
+            };
+
+            const [xBase, yBase] = positionMap[artBackgroundState.position] || positionMap.center;
+
+            $('#cardArt').css({
+                'background-position-x': `calc(${xBase} + ${artBackgroundState.x}px)`,
+                'background-position-y': `calc(${yBase} + ${artBackgroundState.y}px)`
+            });
+        }
+
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
             $('#cardArtName').text($(this).val());
@@ -258,7 +295,18 @@
 
         // Keep the card art background position in sync with the select
         $('#cardArtBackgroundPosition').on('change', function() {
-            $('#cardArt').css('background-position', $(this).val());
+            artBackgroundState.position = $(this).val();
+            updateArtBackgroundPosition();
+        });
+
+        $('#cardArtBackgroundX').on('input', function() {
+            artBackgroundState.x = Number($(this).val()) || 0;
+            updateArtBackgroundPosition();
+        });
+
+        $('#cardArtBackgroundY').on('input', function() {
+            artBackgroundState.y = Number($(this).val()) || 0;
+            updateArtBackgroundPosition();
         });
 
         // Handle background image file selection
@@ -271,9 +319,9 @@
                     $('#cardArt').css({
                         'background-image': `url(${imageUrl})`,
                         'background-size': 'cover',
-                        'background-position': 'center',
                         'background-repeat': 'no-repeat'
                     });
+                    updateArtBackgroundPosition();
                 };
                 reader.readAsDataURL(file);
             }
