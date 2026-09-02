@@ -115,6 +115,11 @@
                 margin-left: 1px;
                 width: 31px !important;
             }
+
+            .mana-cost-symbol {
+                width: 28px !important;
+                height: 28px !important;
+            }
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -229,7 +234,7 @@
 
             var manaCostHtml = '';
             for (var i = 0; i < manaCost.length; i++) {
-                manaCostHtml += `<span class="mana-cost"><img src="img/cost/0.png" width="30" height="30"></span>`;
+                manaCostHtml += `<span class="mana-cost"><img class="mana-cost-symbol" src="img/cost/0.png"></span>`;
             }
 
             $('#cardArtManaCost').html(manaCostHtml);
