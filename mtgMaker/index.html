@@ -83,11 +83,6 @@
                 position: relative;
             }
 
-            #cardArtNamePlate > * {
-                position: relative;
-                z-index: 1;
-            }
-
             #cardArtName {
                 color: white;
                 display: inline-block;
@@ -144,12 +139,15 @@
                             </div>
 
                             <div class="input-field col s12">
+                                <input id="cardCost" type="text">
+                                <label for="cardCost">Cost</label>
+                            </div>
+
+                            <div class="input-field col s12">
                                 <input id="cardNamePlateOpacity" class="tooltipped" type="range" min="0" max="100" value="70" data-position="top" data-tooltip="70%" title="70%">
                                 <label for="cardNamePlateOpacity" class="active">Text Plate Opacity</label>
                             </div>
                         </div>
-
-                        <hr>
 
                         <div class="row">
                             <div class="input-field col s2">
@@ -163,20 +161,18 @@
                             </div>
                         </div>
 
-                        <hr>
-
                         <div class="row">
                             <div class="input-field col s12">
                                 <select id="cardArtBackgroundPosition">
-                                    <option value="top left">Top Left</option>
-                                    <option value="top">Top</option>
-                                    <option value="top right">Top Right</option>
-                                    <option value="left">Left</option>
+                                    <option value="top left">       Top Left</option>
+                                    <option value="top">            Top</option>
+                                    <option value="top right">      Top Right</option>
+                                    <option value="left">           Left</option>
                                     <option value="center" selected>Center</option>
-                                    <option value="right">Right</option>
-                                    <option value="bottom left">Bottom Left</option>
-                                    <option value="bottom">Bottom</option>
-                                    <option value="bottom right">Bottom Right</option>
+                                    <option value="right">          Right</option>
+                                    <option value="bottom left">    Bottom Left</option>
+                                    <option value="bottom">         Bottom</option>
+                                    <option value="bottom right">   Bottom Right</option>
                                 </select>
                                 <label>Art Position</label>
                             </div>
@@ -191,7 +187,7 @@
                                 <div id="cardArtNamePlate" style="background-image: url('img/cardArtNamePlate.png');">
                                     <div id="cardArtNameOverlay">
                                         <span id="cardArtName">Name</span>
-                                        <span id="cardArtNameManaCost" class="right"></span>
+                                        <span id="cardArtManaCost" class="right"></span>
                                     </div>
                                 </div>
                             </div>
@@ -219,6 +215,11 @@
         $('#cardName').on('input', function() {
             $('#cardArtName').text($(this).val());
         });
+
+        // Keep the mana cost preview in sync with the input
+        $('#cardCost').on('input', function() {
+            $('#cardArtManaCost').text($(this).val());
+        }).trigger('input');
 
         // Keep the card preview name size in sync with the font size input
         $('#cardNameFontSize').on('input', function() {
