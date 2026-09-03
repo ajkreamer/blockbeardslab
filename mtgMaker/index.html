@@ -83,11 +83,6 @@
                 height: 132px;
             }
 
-            #cardArtNamePlate {
-                height: 132px;
-                position: relative;
-            }
-
             #cardArtName {
                 color: white;
                 display: inline-block;
@@ -98,6 +93,12 @@
                 padding: 0px;
                 transform: translateX(75px) translateY(68px);
                 text-shadow: 2px 2px 1px black;
+            }
+
+            #cardArtNamePlate {
+                background-image: url('img/cardArtNamePlate.png');
+                height: 132px;
+                position: relative;
             }
 
             #cardCredits {
@@ -200,6 +201,15 @@
                                 <input id="cardArtBackgroundY" type="number" value="0">
                                 <label for="cardArtBackgroundY">Y Offset</label>
                             </div>
+
+                            <div class="input-field col s6">
+                                <select id="cardArtBackgroundSize">
+                                    <option value="cover" selected>Cover</option>
+                                    <option value="contain">Contain</option>
+                                    <option value="auto">Auto</option>
+                                </select>
+                                <label>Art Size</label>
+                            </div>
                         </div>
                     </div>
                 </td>
@@ -208,7 +218,7 @@
                     <div id="cardArtGradient">
                         <div id="cardArtNameContainer">
                             <div id="cardArtNameBorder">
-                                <div id="cardArtNamePlate" style="background-image: url('img/cardArtNamePlate.png');">
+                                <div id="cardArtNamePlate">
                                     <div id="cardArtNameOverlay">
                                         <span id="cardArtName">Name</span>
                                         <span id="cardArtManaCost" class="right"></span>
@@ -309,6 +319,11 @@
             updateArtBackgroundPosition();
         });
 
+        // Keep the card art background size in sync with the select
+        $('#cardArtBackgroundSize').on('change', function() {
+            $('#cardArt').css('background-size', $(this).val());
+        });
+
         // Handle background image file selection
         $('#backgroundImageInput').on('change', function(e) {
             const file = e.target.files[0];
@@ -318,7 +333,7 @@
                     const imageUrl = event.target.result;
                     $('#cardArt').css({
                         'background-image': `url(${imageUrl})`,
-                        'background-size': 'cover',
+                        'background-size': $('#cardArtBackgroundSize').val(),
                         'background-repeat': 'no-repeat'
                     });
                     updateArtBackgroundPosition();
