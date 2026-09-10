@@ -172,7 +172,7 @@
 
                             <div class="input-field col s10">
                                 <input id="cardArtist" type="text">
-                                <label for="cardArtist">Card Artist</label>
+                                <label for="cardArtist">Artist</label>
                             </div>
                         </div>
 
@@ -286,6 +286,9 @@
             }
 
             $('#cardArtManaCost').html(manaCostHtml);
+            $('#cardArtNameBorder').css({
+                'background-image': `url(img/cost/${manaCost[0]}.png)`
+            });
         }).trigger('input');
 
         // Keep the card preview name size in sync with the font size input
