@@ -164,6 +164,27 @@
                             </div>
                         </div>
 
+                        <ul>
+                            <li>
+                                <div class="collapsible-header" data-color="">Color 1</div>
+                                <div class="collapsible-body">
+                                    <span class="color-block z-depth-1 white">&nbsp;</span>
+                                    <span class="color-block z-depth-1 blue">&nbsp;</span>
+                                    <span class="color-block z-depth-1 black">&nbsp;</span>
+                                    <span class="color-block z-depth-1 red">&nbsp;</span>
+                                    <span class="color-block z-depth-1 green">&nbsp;</span>
+                                    <span class="color-block z-depth-1 gray">&nbsp;</span>
+                                    <span class="color-block z-depth-1 gold">&nbsp;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" data-color="">Color 2</div>
+                                <div class="collapsible-body">
+                                    
+                                </div>
+                            </li>
+                        </ul>
+
                         <div class="row">
                             <div class="input-field col s2">
                                 <input id="cardCreditsFontSize" type="number" value="13" min="8" max="72">
@@ -243,6 +264,7 @@
 <script>
     $(function () {
         $('select').formSelect();
+        $('.collapsible').collapsible();
 
         const artBackgroundState = {
             position: 'center',
@@ -286,9 +308,6 @@
             }
 
             $('#cardArtManaCost').html(manaCostHtml);
-            $('#cardArtNameBorder').css({
-                'background-image': `url(img/cost/${manaCost[0]}.png)`
-            });
         }).trigger('input');
 
         // Keep the card preview name size in sync with the font size input
