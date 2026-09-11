@@ -101,6 +101,14 @@
                 position: relative;
             }
 
+            #cardArtTextBorderBottom {
+                background-image: url('img/cardArtTextBorderBottom.png');
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 50px;
+            }
+
             #cardCredits {
                 color: white;
                 font-family: 'BelerenCaps';
@@ -160,6 +168,10 @@
                         </div>
 
                         <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px; display: flex; align-items: flex-end;">
+                            <div id="cardArtTextBorderBottom">
+                                &nbsp;
+                            </div>
+                            
                             <div id="cardCredits">
                                 Art by <span id="cardArtArtist"></span>
                                 <br>Proxy by Blockbeard
