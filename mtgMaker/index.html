@@ -235,9 +235,9 @@
                                     <tr>
                                         <td><span class="right">Color 2</span></td>
                                         <td><label><input name="color2" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color2" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color2" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color2" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color2" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color2" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color2" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
                                         <td></td>
                                         <td></td>
@@ -247,9 +247,9 @@
                                     <tr>
                                         <td><span class="right">Color 3</span></td>
                                         <td><label><input name="color3" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color3" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color3" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color3" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color3" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color3" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color3" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
                                         <td></td>
                                         <td></td>
@@ -259,9 +259,9 @@
                                     <tr>
                                         <td><span class="right">Color 4</span></td>
                                         <td><label><input name="color4" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color4" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color4" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color4" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color4" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color4" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color4" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
                                         <td></td>
                                         <td></td>
@@ -271,9 +271,9 @@
                                     <tr>
                                         <td><span class="right">Color 5</span></td>
                                         <td><label><input name="color5" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color5" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color5" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color5" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color5" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color5" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
                                         <td><label><input name="color5" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
                                         <td></td>
                                         <td></td>
@@ -399,6 +399,14 @@
         $('#cardArtist').on('input', function() {
             $('#cardArtArtist').text($(this).val());
         }).trigger('input');
+
+        // Update the name-frame artwork for the selected card color.
+        $('#colorTable input[type="radio"]').on('change', function() {
+            const color = $(this).data('color');
+
+            $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
+            $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
+        }).filter(':checked').trigger('change');
 
         // Keep the card art background position in sync with the select
         $('#cardArtBackgroundPosition').on('change', function() {
