@@ -411,10 +411,12 @@
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
+                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
             }
             else {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder.png')`);
+                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
             }
         }).filter(':checked').trigger('change');
 
