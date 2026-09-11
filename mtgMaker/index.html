@@ -101,15 +101,6 @@
                 position: relative;
             }
 
-            #cardArtTextBorderBottom {
-                background-image: url('img/cardArtTextBorderBottom.png');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: cover;
-                height: 50px;
-                width: 100%;
-            }
-
             #cardCredits {
                 color: white;
                 font-family: 'BelerenCaps';
@@ -169,7 +160,9 @@
                         </div>
 
                         <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px; display: flex; flex-direction: column; justify-content: flex-end;">
-                            <div id="cardArtTextBorderBottom"><img src="img/cardArtTextBorderBottom.png"></div>
+                            <div id="cardArtTextBorderBottom">
+                                <img id="cardArtTextBorderBottomImg" src="img/cardArtTextBorderBottom.png">
+                            </div>
                             
                             <div id="cardCredits">
                                 Art by <span id="cardArtArtist"></span>
