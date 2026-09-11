@@ -31,7 +31,7 @@
 
             #card {
                 border: 0px;
-                width: 100% !important;  /* 1100px !important; */
+                width: 1100px !important;
             }
 
             #card tr {
@@ -43,7 +43,6 @@
                 padding: 20px;
                 padding-top: 0px;
                 text-align: center;
-                width: 75%;
             }
 
             #cardArt {
@@ -143,28 +142,6 @@
     <body class="blue-grey lighten-4" style="padding-top: 15px;">
         <table id="card">
             <tr>
-                <td id="cardArt" class="white z-depth-1">
-                    <div id="cardArtGradient">
-                        <div id="cardArtNameContainer">
-                            <div id="cardArtNameBorder">
-                                <div id="cardArtNamePlate">
-                                    <div id="cardArtNameOverlay">
-                                        <span id="cardArtName">Name</span>
-                                        <span id="cardArtManaCost" class="right"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px; display: flex; align-items: flex-end;">
-                            <div id="cardCredits">
-                                Art by <span id="cardArtArtist"></span>
-                                <br>Proxy by Blockbeard
-                            </div>
-                        </div>
-                    </div>
-                </td>
-
                 <td id="cardControls">
                     <div class="input-field">
                         <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
@@ -268,6 +245,28 @@
                                     <option value="auto">Auto</option>
                                 </select>
                                 <label>Art Size</label>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+                <td id="cardArt" class="white z-depth-1">
+                    <div id="cardArtGradient">
+                        <div id="cardArtNameContainer">
+                            <div id="cardArtNameBorder">
+                                <div id="cardArtNamePlate">
+                                    <div id="cardArtNameOverlay">
+                                        <span id="cardArtName">Name</span>
+                                        <span id="cardArtManaCost" class="right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px; display: flex; align-items: flex-end;">
+                            <div id="cardCredits">
+                                Art by <span id="cardArtArtist"></span>
+                                <br>Proxy by Blockbeard
                             </div>
                         </div>
                     </div>
