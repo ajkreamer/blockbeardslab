@@ -416,8 +416,14 @@
         $('#colorTable input[type="radio"]').on('change', function() {
             const color = $(this).data('color');
 
-            $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
-            $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
+            if (color != "none") {
+                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
+                $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
+            }
+            else {
+                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate.png')`);
+                $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder.png')`);
+            }
         }).filter(':checked').trigger('change');
 
         // Keep the card art background position in sync with the select
