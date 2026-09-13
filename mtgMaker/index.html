@@ -166,7 +166,15 @@
 
                         <div id="cardArtTextContainer" style="padding: 0px; margin: 0px; height: 748px; display: flex; flex-direction: column; justify-content: flex-end;">
                             <div id="cardArtTextBorderTop" class="green">
-                                &nbsp;
+                                <div id="cardArtTypeContainer">
+                                    <div id="cardArtTypeBorder">
+                                        <div id="cardArtTypePlate">
+                                            <div id="cardArtTypeOverlay">
+                                                <span id="cardArtType">Name</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div id="cardArtTextBorder" class="red">
@@ -206,7 +214,7 @@
                                 <label for="cardNameFontSize">Size</label>
                             </div>
 
-                            <div class="input-field col s4">
+                            <div class="input-field col s3">
                                 <input id="cardName" type="text">
                                 <label for="cardName">Name</label>
                             </div>
@@ -214,6 +222,11 @@
                             <div class="input-field col s2">
                                 <input id="cardCost" type="text">
                                 <label for="cardCost">Cost</label>
+                            </div>
+
+                            <div class="input-field col s3">
+                                <input id="cardType" type="text">
+                                <label for="cardType">Creature</label>
                             </div>
                         </div>
 
@@ -399,6 +412,11 @@
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function() {
             $('#cardArtName').text($(this).val());
+        });
+
+        // Keep the card type preview in sync with the input
+        $('#cardType').on('input', function() {
+            $('#cardArtType').text($(this).val());
         });
 
         // Keep the mana cost preview in sync with the input
