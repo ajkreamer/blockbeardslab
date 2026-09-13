@@ -337,8 +337,14 @@
                                     <option value="cover" selected>Cover</option>
                                     <option value="contain">Contain</option>
                                     <option value="auto">Auto</option>
+                                    <option value="custom">Custom</option>
                                 </select>
                                 <label>Art Size</label>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundScale" type="number" value="100" min="10" max="400" step="1">
+                                <label for="cardArtBackgroundScale">Scale %</label>
                             </div>
                         </div>
                     </div>
@@ -356,7 +362,9 @@
         const artBackgroundState = {
             position: 'center',
             x: 0,
-            y: 0
+            y: 0,
+            sizeMode: 'cover',
+            scale: 100
         };
 
         function updateArtBackgroundPosition() {
@@ -378,6 +386,14 @@
                 'background-position-x': `calc(${xBase} + ${artBackgroundState.x}px)`,
                 'background-position-y': `calc(${yBase} + ${artBackgroundState.y}px)`
             });
+        }
+
+        function updateArtBackgroundSize() {
+            const backgroundSize = artBackgroundState.sizeMode === 'custom'
+                ? `${artBackgroundState.scale}%`
+                : artBackgroundState.sizeMode;
+
+            $('#cardArt').css('background-size', backgroundSize);
         }
 
         // Keep the card preview name in sync with the input
@@ -446,7 +462,14 @@
 
         // Keep the card art background size in sync with the select
         $('#cardArtBackgroundSize').on('change', function() {
-            $('#cardArt').css('background-size', $(this).val());
+            artBackgroundState.sizeMode = $(this).val();
+            updateArtBackgroundSize();
+        });
+
+        // Keep custom background scale in sync with the input
+        $('#cardArtBackgroundScale').on('input', function() {
+            artBackgroundState.scale = Number($(this).val()) || 100;
+            updateArtBackgroundSize();
         });
 
         // Handle background image file selection
@@ -458,9 +481,11 @@
                     const imageUrl = event.target.result;
                     $('#cardArt').css({
                         'background-image': `url(${imageUrl})`,
-                        'background-size': $('#cardArtBackgroundSize').val(),
                         'background-repeat': 'no-repeat'
                     });
+                    artBackgroundState.sizeMode = $('#cardArtBackgroundSize').val();
+                    artBackgroundState.scale = Number($('#cardArtBackgroundScale').val()) || 100;
+                    updateArtBackgroundSize();
                     updateArtBackgroundPosition();
                 };
                 reader.readAsDataURL(file);
