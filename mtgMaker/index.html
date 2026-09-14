@@ -208,7 +208,7 @@
                                     <div id="cardArtTypeBorder">
                                         <div id="cardArtTypePlate">
                                             <div id="cardArtTypeOverlay">
-                                                <span id="cardArtType">Creature —</span>
+                                                <span id="cardArtType">Creature — </span>
                                             </div>
                                         </div>
                                     </div>
@@ -492,11 +492,13 @@
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
+                $('#cardArtTypeBorder').attr('src', `img/cardArtTypeBorder-${color}.png`);
             }
             else {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder.png')`);
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
+                $('#cardArtTypeBorder').attr('src', `img/cardArtTypeBorder.png`);
             }
         }).filter(':checked').trigger('change');
 
