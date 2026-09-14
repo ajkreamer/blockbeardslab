@@ -232,20 +232,66 @@
                 </td>
 
                 <td id="cardControls">
-                    <div class="input-field">
-                        <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
-                        <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
-                            Art
-                        </button>
-
-                        <button class="btn right" id="downloadButton">
-                            Download
-                        </button>
-
-                        <h4>Settings</h4>
-                    </div>
+                    <h4>Settings</h4>
 
                     <div class="white" style="padding: 25px;">
+                        <div class="row">
+                            <div class="col s1 input-field">
+                                <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
+                                <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
+                                    Art
+                                </button>
+                            </div>
+
+                            <div class="input-field col s2">
+                                <select id="cardArtBackgroundPosition">
+                                    <option value="top left"> Top Left</option>
+                                    <option value="top"> Top</option>
+                                    <option value="top right"> Top Right</option>
+                                    <option value="left"> Left</option>
+                                    <option value="center" selected>Center</option>
+                                    <option value="right"> Right</option>
+                                    <option value="bottom left"> Bottom Left</option>
+                                    <option value="bottom"> Bottom</option>
+                                    <option value="bottom right"> Bottom Right</option>
+                                </select>
+                                <label>Art Position</label>
+                            </div>
+                            
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundX" type="number" value="0">
+                                <label for="cardArtBackgroundX">X Offset</label>
+                            </div>
+                            
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundY" type="number" value="0">
+                                <label for="cardArtBackgroundY">Y Offset</label>
+                            </div>
+                            
+                            <div class="input-field col s1">
+                                <select id="cardArtBackgroundSize">
+                                    <option value="cover" selected>Cover</option>
+                                    <option value="contain">Contain</option>
+                                    <option value="auto">Auto</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                                <label>Art Size</label>
+                            </div>
+                            
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundScale" type="number" value="100" min="10" max="400" step="1">
+                                <label for="cardArtBackgroundScale">Scale %</label>
+                            </div>
+
+                            <div class="col s1">
+                                <button class="btn right" id="downloadButton">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+
+                        <hr>
+
                         <div class="row">
                             <div class="input-field col s1">
                                 <input id="cardNameFontSize" type="number" value="31">
@@ -352,7 +398,7 @@
                                         <option value="gold" selected>Gold</option>
                                         <option value="match">Match</option>
                                     </select>
-                                    <label>Name Background</label>
+                                    <label>Nameplate Background</label>
                                 </div>
 
                                 <div class="input-field">
@@ -361,7 +407,7 @@
                                         <option value="gold" selected>Gold</option>
                                         <option value="match">Match</option>
                                     </select>
-                                    <label>Text Background</label>
+                                    <label>Textplate Background</label>
                                 </div>
                             </div>
                         </div>
@@ -376,46 +422,6 @@
                             <div class="input-field col s3">
                                 <input id="cardArtist" type="text">
                                 <label for="cardArtist">Artist</label>
-                            </div>
-
-                            <div class="input-field col s2">
-                                <select id="cardArtBackgroundPosition">
-                                    <option value="top left">       Top Left</option>
-                                    <option value="top">            Top</option>
-                                    <option value="top right">      Top Right</option>
-                                    <option value="left">           Left</option>
-                                    <option value="center" selected>Center</option>
-                                    <option value="right">          Right</option>
-                                    <option value="bottom left">    Bottom Left</option>
-                                    <option value="bottom">         Bottom</option>
-                                    <option value="bottom right">   Bottom Right</option>
-                                </select>
-                                <label>Art Position</label>
-                            </div>
-
-                            <div class="input-field col s1">
-                                <input id="cardArtBackgroundX" type="number" value="0">
-                                <label for="cardArtBackgroundX">X Offset</label>
-                            </div>
-
-                            <div class="input-field col s1">
-                                <input id="cardArtBackgroundY" type="number" value="0">
-                                <label for="cardArtBackgroundY">Y Offset</label>
-                            </div>
-
-                            <div class="input-field col s1">
-                                <select id="cardArtBackgroundSize">
-                                    <option value="cover" selected>Cover</option>
-                                    <option value="contain">Contain</option>
-                                    <option value="auto">Auto</option>
-                                    <option value="custom">Custom</option>
-                                </select>
-                                <label>Art Size</label>
-                            </div>
-
-                            <div class="input-field col s1">
-                                <input id="cardArtBackgroundScale" type="number" value="100" min="10" max="400" step="1">
-                                <label for="cardArtBackgroundScale">Scale %</label>
                             </div>
                         </div>
                     </div>
