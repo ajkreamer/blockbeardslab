@@ -497,8 +497,10 @@
             $('#cardArtArtist').text($(this).val());
         }).trigger('input');
 
-        // Apply the given theme's assets to the name/type/text-border frames.
-        function applyTextBgAssets(color) {
+        // Update the name-frame artwork for the selected card color.
+        $('#colorTable input[type="radio"]').on('change', function() {
+            const color = $(this).data('color');
+
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
@@ -513,23 +515,7 @@
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate.png')`);
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
             }
-        }
-
-        // Resolve the text background theme, falling back to the selected card color when set to "match".
-        function updateTextBgTheme() {
-            const theme = $('#textBgTheme').val();
-            const color = theme === 'match'
-                ? ($('#colorTable input[name="color1"]:checked').data('color') || 'none')
-                : theme;
-
-            applyTextBgAssets(color);
-        }
-
-        // Update the name-frame artwork for the selected card color.
-        $('#colorTable input[type="radio"]').on('change', updateTextBgTheme).filter(':checked').trigger('change');
-
-        // Update the name-frame artwork when the text background theme changes.
-        $('#textBgTheme').on('change', updateTextBgTheme);
+        }).filter(':checked').trigger('change');
 
         // Keep the card art background position in sync with the select
         $('#cardArtBackgroundPosition').on('change', function() {
