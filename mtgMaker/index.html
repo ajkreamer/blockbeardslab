@@ -349,9 +349,9 @@
                                 <div class="row">
                                     <div class="col s2 input-field">
                                         <select id="textBgTheme">
-                                            <option value="match">Match</option>
+                                            <option value="dark" selected>Dark</option>
                                             <option value="gold">Gold</option>
-                                            <option value="dark">Dark</option>
+                                            <option value="match">Match</option>
                                         </select>
                                         <label>Text Background</label>
                                     </div>
@@ -514,6 +514,13 @@
                 $('#cardArtTypeBorder').css('background-image', `url('img/cardArtTypeBorder.png')`);
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate.png')`);
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
+            }
+
+            if ($('#textBgTheme').val() == 'dark') {
+                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
+            }
+            else if ($('#textBgTheme').val() == 'gold') {
+                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
             }
         }).filter(':checked').trigger('change');
 
