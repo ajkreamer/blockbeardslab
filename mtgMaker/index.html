@@ -130,11 +130,11 @@
                 color: white;
                 display: inline-block;
                 font-family: 'Beleren';
-                font-size: 31px;
+                font-size: 26px;
                 height: 56px;
                 margin: 0px;
                 padding: 0px;
-                transform: translateX(75px) translateY(8px);
+                transform: translateX(75px) translateY(11px);
                 text-shadow: 2px 2px 1px black;
             }
 
@@ -232,161 +232,21 @@
                 </td>
 
                 <td id="cardControls">
-                    <h4>Settings</h4>
+                    <div class="input-field">
+                        <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
+                        <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
+                            Art
+                        </button>
 
-                    <div class="white z-depth-2" style="padding: 25px;">
-                        <div class="row" style="margin: 0px;">
-                            <div class="col s1 offset-s2 input-field">
-                                <input type="file" id="backgroundImageInput" accept="image/*" style="display: none;">
-                                <button class="btn left" onclick="document.getElementById('backgroundImageInput').click()">
-                                    Art
-                                </button>
-                            </div>
+                        <button class="btn right" id="downloadButton">
+                            Download
+                        </button>
 
-                            <div class="col s6">
-                                <table id="colorTable">
-                                    <tr>
-                                        <td></td>
-                                        <td><span class="color-block z-depth-1 white">&nbsp;</span></td>
-                                        <td><span class="color-block z-depth-1 blue">&nbsp;</span></td>
-                                        <td><span class="color-block z-depth-1 grey darken-3">&nbsp;</span></td>
-                                        <td><span class="color-block z-depth-1 red">&nbsp;</span></td>
-                                        <td><span class="color-block z-depth-1 green">&nbsp;</span></td>
-                                        <td><span class="color-block z-depth-1 grey lighten-1">&nbsp;</span></td>
-                                        <td><span class="color-block z-depth-1 gold">&nbsp;</span></td>
-                                        <td><span class="color-block black">&nbsp;</span></td>
-                                    </tr>
-                                
-                                    <tr>
-                                        <td><span class="right">Color 1</span></td>
-                                        <td><label><input name="color1" type="radio" data-color="white"><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color1" type="radio" data-color="blue"><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color1" type="radio" data-color="black"><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color1" type="radio" data-color="red"><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color1" type="radio" data-color="green"><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color1" type="radio" data-color="gray"><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color1" type="radio" data-color="gold" checked><span>&nbsp;</span></label></td>
-                                        <td></td>
-                                    </tr>
-                                
-                                    <tr>
-                                        <td><span class="right">Color 2</span></td>
-                                        <td><label><input name="color2" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color2" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color2" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color2" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color2" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><label><input name="color2" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
-                                    </tr>
-                                
-                                    <tr>
-                                        <td><span class="right">Color 3</span></td>
-                                        <td><label><input name="color3" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color3" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color3" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color3" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color3" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><label><input name="color3" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
-                                    </tr>
-                                
-                                    <tr>
-                                        <td><span class="right">Color 4</span></td>
-                                        <td><label><input name="color4" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color4" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color4" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color4" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color4" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><label><input name="color4" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
-                                    </tr>
-                                
-                                    <tr>
-                                        <td><span class="right">Color 5</span></td>
-                                        <td><label><input name="color5" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color5" type="radio" data-color="blue" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color5" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color5" type="radio" data-color="red" disabled><span>&nbsp;</span></label></td>
-                                        <td><label><input name="color5" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><label><input name="color5" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="col s1">
-                                <button class="btn right" id="downloadButton">
-                                    Download
-                                </button>
-                            </div>
-                        </div>
+                        <h4>Settings</h4>
                     </div>
 
-                    <div><br></div>
-
-                    <div class="white z-depth-2" style="padding: 25px;">
-                        <div class="row" style="margin: 0px;">
-                            <div class="input-field col s1">
-                                <input id="cardCreditsFontSize" type="number" value="13" min="8" max="72">
-                                <label for="cardCreditsFontSize">Size</label>
-                            </div>
-                            
-                            <div class="input-field col s2">
-                                <input id="cardArtist" type="text">
-                                <label for="cardArtist">Artist</label>
-                            </div>
-
-                            <div class="input-field col s2">
-                                <select id="cardArtBackgroundPosition">
-                                    <option value="top left"> Top Left</option>
-                                    <option value="top"> Top</option>
-                                    <option value="top right"> Top Right</option>
-                                    <option value="left"> Left</option>
-                                    <option value="center" selected>Center</option>
-                                    <option value="right"> Right</option>
-                                    <option value="bottom left"> Bottom Left</option>
-                                    <option value="bottom"> Bottom</option>
-                                    <option value="bottom right"> Bottom Right</option>
-                                </select>
-                                <label>Art Position</label>
-                            </div>
-                            
-                            <div class="input-field col s1">
-                                <input id="cardArtBackgroundX" type="number" value="0">
-                                <label for="cardArtBackgroundX">X Offset</label>
-                            </div>
-                            
-                            <div class="input-field col s1">
-                                <input id="cardArtBackgroundY" type="number" value="0">
-                                <label for="cardArtBackgroundY">Y Offset</label>
-                            </div>
-                            
-                            <div class="input-field col s1">
-                                <select id="cardArtBackgroundSize">
-                                    <option value="cover" selected>Cover</option>
-                                    <option value="contain">Contain</option>
-                                    <option value="auto">Auto</option>
-                                    <option value="custom">Custom</option>
-                                </select>
-                                <label>Art Size</label>
-                            </div>
-                            
-                            <div class="input-field col s1">
-                                <input id="cardArtBackgroundScale" type="number" value="100" min="10" max="400" step="1">
-                                <label for="cardArtBackgroundScale">Scale %</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div><br></div>
-
-                    <div class="white z-depth-2" style="padding: 25px;">
-                        <div class="row" style="margin: 0px;">
+                    <div class="white" style="padding: 25px;">
+                        <div class="row">
                             <div class="input-field col s1">
                                 <input id="cardNameFontSize" type="number" value="31">
                                 <label for="cardNameFontSize">Size</label>
@@ -402,34 +262,153 @@
                                 <label for="cardCost">Cost</label>
                             </div>
 
-                            <div class="input-field col s2">
-                                <select id="nameBgTheme">
-                                    <option value="gold" selected>Gold</option>
-                                    <option value="match">Match</option>
-                                </select>
-                                <label>Nameplate Background</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div><br></div>
-
-                    <div class="white z-depth-2" style="padding: 25px;">
-                        <div class="row">
-                            <div class="col s2">
-                                <div class="input-field">
-                                    <select id="textBgTheme">
-                                        <option value="dark">Dark</option>
-                                        <option value="gold" selected>Gold</option>
-                                        <option value="match">Match</option>
-                                    </select>
-                                    <label>Textplate Background</label>
-                                </div>
-                            </div>
-
                             <div class="input-field col s3">
                                 <input id="cardType" type="text" value="Creature — ">
                                 <label for="cardType">Type</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s6">
+                                <table id="colorTable">
+                                    <tr>
+                                        <td></td>
+                                        <td><span class="color-block z-depth-1 white">&nbsp;</span></td>
+                                        <td><span class="color-block z-depth-1 blue">&nbsp;</span></td>
+                                        <td><span class="color-block z-depth-1 grey darken-3">&nbsp;</span></td>
+                                        <td><span class="color-block z-depth-1 red">&nbsp;</span></td>
+                                        <td><span class="color-block z-depth-1 green">&nbsp;</span></td>
+                                        <td><span class="color-block z-depth-1 grey lighten-1">&nbsp;</span></td>
+                                        <td><span class="color-block z-depth-1 gold">&nbsp;</span></td>
+                                        <td><span class="color-block black">&nbsp;</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="right">Color 1</span></td>
+                                        <td><label><input name="color1" type="radio" data-color="white"><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color1" type="radio" data-color="blue"><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color1" type="radio" data-color="black"><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color1" type="radio" data-color="red"><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color1" type="radio" data-color="green"><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color1" type="radio" data-color="gray"><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color1" type="radio" data-color="gold" checked><span>&nbsp;</span></label></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="right">Color 2</span></td>
+                                        <td><label><input name="color2" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color2" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color2" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color2" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color2" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><label><input name="color2" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="right">Color 3</span></td>
+                                        <td><label><input name="color3" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color3" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color3" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color3" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color3" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><label><input name="color3" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="right">Color 4</span></td>
+                                        <td><label><input name="color4" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color4" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color4" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color4" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color4" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><label><input name="color4" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="right">Color 5</span></td>
+                                        <td><label><input name="color5" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color5" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color5" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color5" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
+                                        <td><label><input name="color5" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><label><input name="color5" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="col s6">
+                                <div class="row">
+                                    <div class="col s2 input-field">
+                                        <select id="textBgTheme">
+                                            <option value="match">Match</option>
+                                            <option value="gold">Gold</option>
+                                            <option value="dark">Dark</option>
+                                        </select>
+                                        <label>Text Background</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="row">
+                            <div class="input-field col s1">
+                                <input id="cardCreditsFontSize" type="number" value="13" min="8" max="72">
+                                <label for="cardCreditsFontSize">Size</label>
+                            </div>
+
+                            <div class="input-field col s3">
+                                <input id="cardArtist" type="text">
+                                <label for="cardArtist">Artist</label>
+                            </div>
+
+                            <div class="input-field col s2">
+                                <select id="cardArtBackgroundPosition">
+                                    <option value="top left">       Top Left</option>
+                                    <option value="top">            Top</option>
+                                    <option value="top right">      Top Right</option>
+                                    <option value="left">           Left</option>
+                                    <option value="center" selected>Center</option>
+                                    <option value="right">          Right</option>
+                                    <option value="bottom left">    Bottom Left</option>
+                                    <option value="bottom">         Bottom</option>
+                                    <option value="bottom right">   Bottom Right</option>
+                                </select>
+                                <label>Art Position</label>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundX" type="number" value="0">
+                                <label for="cardArtBackgroundX">X Offset</label>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundY" type="number" value="0">
+                                <label for="cardArtBackgroundY">Y Offset</label>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <select id="cardArtBackgroundSize">
+                                    <option value="cover" selected>Cover</option>
+                                    <option value="contain">Contain</option>
+                                    <option value="auto">Auto</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                                <label>Art Size</label>
+                            </div>
+
+                            <div class="input-field col s1">
+                                <input id="cardArtBackgroundScale" type="number" value="100" min="10" max="400" step="1">
+                                <label for="cardArtBackgroundScale">Scale %</label>
                             </div>
                         </div>
                     </div>
@@ -536,13 +515,6 @@
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate.png')`);
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
             }
-
-            if ($('#textBgTheme').val() == 'dark') {
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
-            }
-            else if ($('#textBgTheme').val() == 'gold') {
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
-            }
         }).filter(':checked').trigger('change');
 
         // Keep the card art background position in sync with the select
@@ -611,20 +583,6 @@
                 console.error('Error capturing card:', error);
                 alert('Error capturing card. Please try again.');
             });
-        });
-
-        $('#textBgTheme').on('change', function() {
-            const source = $(this);
-
-            if (source.val() == 'dark') {
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
-            }
-            else if (source.val() == 'gold') {
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
-            }
-            else {
-                
-            }
         });
     });
 </script>
