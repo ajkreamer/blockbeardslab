@@ -113,6 +113,8 @@
 
         #cardArtTextOverlay {
             background-image: url('img/cardArtTextBorderOverlay.png');
+            color: white;
+            font-family: 'MPlantin';
         }
 
         #cardArtTypeBorder {
@@ -132,7 +134,6 @@
             background-position: top;
             background-repeat: no-repeat;
             background-size: cover;
-            font-family: 'MPlantin';
             height: 56px;
         }
 
@@ -429,6 +430,11 @@
 
                 <div class="white z-depth-2" style="padding: 25px;">
                     <div class="row">
+                        <div class="input-field col s2">
+                            <input id="cardTextFontSize" type="number" value="16" min="8" max="72">
+                            <label for="cardTextFontSize">Text Size</label>
+                        </div>
+
                         <div class="col s2">
                             <div class="input-field">
                                 <select id="textBgTheme">
@@ -525,6 +531,10 @@
         // Keep the card credits size in sync with the font size input
         $('#cardCreditsFontSize').on('input', function () {
             $('#cardCredits').css('font-size', `${$(this).val()}px`);
+        }).trigger('input');
+
+        $('#cardTextFontSize').on('input', function () {
+            $('#cardArtTextOverlay').css('font-size', `${$(this).val()}px`);
         }).trigger('input');
 
         // Keep the card artist preview in sync with the input
