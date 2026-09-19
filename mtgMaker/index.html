@@ -451,6 +451,11 @@
                             <input id="cardType" type="text" value="Creature — ">
                             <label for="cardType">Type</label>
                         </div>
+
+                        <div class="input-field col s6">
+                            <textarea id="cardText" class="materialize-textarea">This is some card text.</textarea>
+                            <label for="cardText">Text</label>
+                        </div>
                     </div>
                 </div>
             </td>
@@ -511,6 +516,10 @@
         $('#cardType').on('input', function () {
             $('#cardArtType').text($(this).val());
         });
+
+        $('#cardText').on('input', function () {
+            $('#cardArtTextOverlay').text($(this).val());
+        }).trigger('input');
 
         // Keep the mana cost preview in sync with the input
         $('#cardCost').on('input', function () {
