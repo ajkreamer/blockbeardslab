@@ -520,7 +520,7 @@
         });
 
         $('#cardText').on('input', function () {
-            $('#cardArtTextOverlay').text($(this).val());
+            $('#cardArtTextOverlay').html($(this).val());
         }).trigger('input');
 
         // Keep the mana cost preview in sync with the input
