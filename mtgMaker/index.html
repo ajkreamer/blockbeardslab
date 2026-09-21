@@ -509,6 +509,37 @@
             $('#cardArt').css('background-size', backgroundSize);
         }
 
+        function updateArtFrameColors() {
+            // const color = $(this).data('color');
+            const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
+
+            if (color != "none") {
+                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
+                $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
+                $('#cardArtTypeBorder').css('background-image', `url('img/cardArtTypeBorder-${color}.png')`);
+                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-${color}.png')`);
+                $('#cardArtText').css('background-image', `url('img/cardArtTextBorder-${color}.png')`);
+
+                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
+            }
+            else {
+                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate.png')`);
+                $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder.png')`);
+                $('#cardArtTypeBorder').css('background-image', `url('img/cardArtTypeBorder.png')`);
+                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate.png')`);
+                $('#cardArtText').css('background-image', `url('img/cardArtTextBorder.png')`);
+
+                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
+            }
+
+            if ($('#textBgTheme').val() == 'dark') {
+                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
+            }
+            else if ($('#textBgTheme').val() == 'gold') {
+                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
+            }
+        }
+
         // Keep the card preview name in sync with the input
         $('#cardName').on('input', function () {
             $('#cardArtName').text($(this).val());
@@ -555,35 +586,9 @@
         }).trigger('input');
 
         // Update the name-frame artwork for the selected card color.
-        $('#colorTable input[type="radio"]').on('change', function () {
-            const color = $(this).data('color');
-
-            if (color != "none") {
-                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
-                $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
-                $('#cardArtTypeBorder').css('background-image', `url('img/cardArtTypeBorder-${color}.png')`);
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-${color}.png')`);
-                $('#cardArtText').css('background-image', `url('img/cardArtTextBorder-${color}.png')`);
-
-                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
-            }
-            else {
-                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate.png')`);
-                $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder.png')`);
-                $('#cardArtTypeBorder').css('background-image', `url('img/cardArtTypeBorder.png')`);
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate.png')`);
-                $('#cardArtText').css('background-image', `url('img/cardArtTextBorder.png')`);
-
-                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
-            }
-
-            if ($('#textBgTheme').val() == 'dark') {
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
-            }
-            else if ($('#textBgTheme').val() == 'gold') {
-                $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
-            }
-        }).filter(':checked').trigger('change');
+        $('#colorTable input[type="radio"]').on('change', updateArtFrameColors).filter(':checked').trigger('change');
+        $('#textBgTheme').on('change', updateArtFrameColors);
+        $('#nameBgTheme').on('change', updateArtFrameColors);
 
         // Keep the card art background position in sync with the select
         $('#cardArtBackgroundPosition').on('change', function () {
