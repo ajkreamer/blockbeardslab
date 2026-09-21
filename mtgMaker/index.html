@@ -532,10 +532,14 @@
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
             }
 
-            if ($('#textBgTheme').val() == 'dark') {
+            if ($('#textBgTheme').val() == 'gold') {
+                $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-gold.png')`);
+            }
+
+            if ($('#typeBgTheme').val() == 'dark') {
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
             }
-            else if ($('#textBgTheme').val() == 'gold') {
+            else if ($('#typeBgTheme').val() == 'gold') {
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
             }
         }
