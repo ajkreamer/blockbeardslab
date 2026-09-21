@@ -514,8 +514,8 @@
             const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
 
             console.log("Selected color: " + color);
-            console.log("Nameplate color: " + $('#textBgTheme').val());
-            console.log("Typeplate color: " + $('#typeBgTheme').val());
+            console.log("Nameplate color: " + $('#nameBgTheme').val());
+            console.log("Typeplate color: " + $('#textBgTheme').val());
 
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
@@ -536,14 +536,14 @@
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
             }
 
-            if ($('#textBgTheme').val() == 'gold') {
+            if ($('#nameBgTheme').val() == 'gold') {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-gold.png')`);
             }
 
-            if ($('#typeBgTheme').val() == 'dark') {
+            if ($('#textBgTheme').val() == 'dark') {
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-dark.png')`);
             }
-            else if ($('#typeBgTheme').val() == 'gold') {
+            else if ($('#textBgTheme').val() == 'gold') {
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-gold.png')`);
             }
         }
