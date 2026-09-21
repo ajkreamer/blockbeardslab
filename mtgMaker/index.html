@@ -513,6 +513,10 @@
             // const color = $(this).data('color');
             const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
 
+            console.log("Selected color: " + color);
+            console.log("Nameplate color: " + $('#textBgTheme').val());
+            console.log("Typeplate color: " + $('#typeBgTheme').val());
+
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/cardArtNamePlate-${color}.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/cardArtNameBorder-${color}.png')`);
