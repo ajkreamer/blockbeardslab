@@ -102,8 +102,8 @@
             position: relative;
         }
 
-        #cardArtText {
-            background-image: url('img/cardArtTextBorder.png');
+        #cardArtTextBg {
+            background-image: url('img/cardArtTextBackground.png');
         }
 
         #cardArtTextBorderBottom {
@@ -111,8 +111,7 @@
             display: flex;
         }
 
-        #cardArtTextContent {
-            background-color: rgba(142, 132, 81, 0.7);
+        /* #cardArtTextContent {
             box-shadow: inset -3px 0px 1px rgba(0, 0, 0, 0.4),
                         inset 0px 3px 1px rgba(0, 0, 0, 0.4),
                         inset 3px 0px 1px rgba(255, 255, 255, 0.4),
@@ -123,38 +122,6 @@
             padding-top: 5px;
         }
 
-        #cardArtTextContent.black-text-box {
-            background-color: rgba(61, 61, 61, 0.7);
-        }
-
-        #cardArtTextContent.dark-text-box {
-            background-color: rgba(61, 61, 61, 0.7);
-        }
-
-        #cardArtTextContent.red-text-box {
-            background-color: rgba(198, 40, 40, 0.7);
-        }
-
-        #cardArtTextContent.green-text-box {
-            background-color: rgba(46, 125, 50, 0.7);
-        }
-
-        #cardArtTextContent.blue-text-box {
-            background-color: rgba(21, 101, 192, 0.7);
-        }
-
-        #cardArtTextContent.white-text-box {
-            background-color: rgba(181, 181, 181, 0.7);
-        }
-
-        #cardArtTextContent.gray-text-box {
-            background-color: rgba(124, 124, 124, 0.7);
-        }
-
-        #cardArtTextContent.gold-text-box {
-            background-color: rgba(142, 132, 81, 0.7);
-        }
-
         #cardArtTextOverlay {
             background-image: url('img/cardArtTextBorderOverlay.png');
             color: white;
@@ -162,7 +129,7 @@
             line-height: 33px;
             padding-left: 70px;
             padding-right: 70px;
-        }
+        } */
 
         #cardArtTypeBorder {
             background-image: url('img/cardArtTypeBorder.png');
@@ -274,11 +241,13 @@
                             </div>
                         </div>
 
-                        <div id="cardArtText">
+                        <!-- <div id="cardArtText">
                             <div id="cardArtTextOverlay">
                                 <div id="cardArtTextContent">This is some card text....</div>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <div id="cardArtTextBg">This is some card text....</div>
 
                         <div id="cardArtTextBorderBottom">
                             <img id="cardArtTextBorderBottomImg" src="img/cardArtTextBorderBottom.png">
