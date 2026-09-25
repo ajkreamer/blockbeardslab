@@ -110,6 +110,10 @@
             background-image: url('img/cardArtTextBorder.png');
         }
 
+        #cardArtTextBorderBorder {
+            background-image: url('img/cardArtTextBorderOverlay.png');
+        }
+
         #cardArtTextBorderBottom {
             align-items: flex-start;
             display: flex;
@@ -253,7 +257,9 @@
 
                         <div id="cardArtTextBg">
                             <div id="cardArtTextBorder">
-                                This is some card text....
+                                <div id="cardArtTextBorderBorder">
+                                    This is some card text....
+                                </div>
                             </div>
                         </div>
 
