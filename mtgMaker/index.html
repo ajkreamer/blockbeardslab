@@ -165,7 +165,7 @@
             color: white;
             display: inline-block;
             font-family: 'Beleren';
-            font-size: 31px;
+            font-size: 26px;
             height: 56px;
             margin: 0px;
             padding: 0px;
@@ -480,6 +480,11 @@
                             </div>
                         </div>
 
+                        <div class="input-field col s1">
+                            <input id="cardTypeFontSize" type="number" value="26" min="8" max="72">
+                            <label for="cardTypeFontSize">Type Size</label>
+                        </div>
+
                         <div class="input-field col s3">
                             <input id="cardType" type="text" value="Creature — ">
                             <label for="cardType">Type</label>
@@ -617,6 +622,11 @@
 
         $('#cardTextFontSize').on('input', function () {
             $('#cardArtTextContent').css('font-size', `${$(this).val()}px`);
+        }).trigger('input');
+
+        // Keep the card preview type size in sync with the font size input
+        $('#cardTypeFontSize').on('input', function () {
+            $('#cardArtType').css('font-size', `${$(this).val()}px`);
         }).trigger('input');
 
         // Keep the card artist preview in sync with the input
