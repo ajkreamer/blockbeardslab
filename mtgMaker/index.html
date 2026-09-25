@@ -612,7 +612,7 @@
         }).trigger('input');
 
         $('#cardTextFontSize').on('input', function () {
-            $('#cardArtTextOverlay').css('font-size', `${$(this).val()}px`);
+            $('#cardArtTextContent').css('font-size', `${$(this).val()}px`);
         }).trigger('input');
 
         // Keep the card artist preview in sync with the input
