@@ -577,7 +577,7 @@
         });
 
         $('#cardText').on('input', function () {
-            $('#cardArtTextContent').html('<div class="card-text-new-line">' + $(this).val().replace('\n', '</div><div class="card-text-new-line">') + '</div>');
+            $('#cardArtTextContent').html('<div class="card-text-new-line">' + $(this).val().replaceAll('\n', '</div><div class="card-text-new-line">') + '</div>');
         }).trigger('input');
 
         // Keep the mana cost preview in sync with the input
