@@ -107,11 +107,11 @@
 
         #cardArtPt {
             background-image: url('img/pt/pt.png');
-            bottom: 0px;
+            bottom: 63px;
             height: 46px;
             width: 630px;
+            padding-right: 50px;
             position: absolute;
-            right: 0px;
             z-index: 9999;
         }
 
@@ -231,6 +231,11 @@
             width: 28px !important;
             height: 28px !important;
         }
+
+        .pt {
+            color: white;
+            text-shadow: 2px, 2px, 2px, black;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -295,7 +300,9 @@
                     </div>
                 </div>
 
-                <div id="cardArtPt">x/x</div>
+                <div id="cardArtPt">
+                    <span class="pt right">x/x</span>
+                </div>
             </td>
 
             <td id="cardControls">
