@@ -497,7 +497,12 @@
                             <label for="cardType">Type</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div class="input-field col s2">
+                            <input id="cardPt" type="text" value="1/1">
+                            <label for="cardPt">Power / Toughness</label>
+                        </div>
+
+                        <div class="input-field col s4">
                             <textarea id="cardText" class="materialize-textarea">This is some card text.</textarea>
                             <label for="cardText">Text</label>
                         </div>
@@ -600,6 +605,10 @@
         $('#cardType').on('input', function () {
             $('#cardArtType').text($(this).val());
         });
+
+        $('#cardPt').on('input', function () {
+            $('.pt').text($(this).val());
+        }).trigger('input');
 
         $('#cardText').on('input', function () {
             $('#cardArtTextContent').html('<div class="card-text-new-line">' + $(this).val().replaceAll('\n', '</div><div class="card-text-new-line">') + '</div>');
