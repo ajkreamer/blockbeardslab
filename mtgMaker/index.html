@@ -193,6 +193,10 @@
             padding: 5px;
         }
 
+        .card-text-new-line {
+            margin-bottom: 10px;
+        }
+
         .color-block {
             display: inline-block;
             height: 25px !important;
@@ -573,7 +577,7 @@
         });
 
         $('#cardText').on('input', function () {
-            $('#cardArtTextContent').html('<p>' + $(this).val().replace('\n', '</p><p>') + '</p>');
+            $('#cardArtTextContent').html('<div class="card-text-new-line">' + $(this).val().replace('\n', '</div><div class="card-text-new-line">') + '</div>');
         }).trigger('input');
 
         // Keep the mana cost preview in sync with the input
