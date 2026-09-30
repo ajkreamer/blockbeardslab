@@ -563,7 +563,7 @@
         function updateArtFrameColors() {
             const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             const cardType = $('#cardType').val();
-            var isLegendary = cardType.indexOf('legendary') !== -1;
+            var isLegendary = cardType.indexOf('Legendary') !== -1;
 
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
