@@ -561,8 +561,9 @@
         }
 
         function updateArtFrameColors() {
-            // const color = $(this).data('color');
             const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
+            const cardType = $('#cardType').val();
+            var isLegendary = cardType.indexOf('legendary') !== -1;
 
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
@@ -574,6 +575,10 @@
                 $('#cardArtPt').css('background-image', `url('img/pt/pt-${color}.png')`);
 
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
+
+                if (isLegendary) {
+                    $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
+                }
             }
             else {
                 $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-dark.png')`);
@@ -585,6 +590,10 @@
                 $('#cardArtPt').css('background-image', `url('img/pt/pt.png')`);
 
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
+
+                if (isLegendary) {
+                    $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/legendary/cardArtNameBorderLegendary.png')`);
+                }
             }
 
             if ($('#nameBgTheme').val() == 'gold') {
