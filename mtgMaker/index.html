@@ -726,8 +726,8 @@
                 scale: 2,
                 useCORS: true
             }).then(function (canvas) {
-                const cardName = $('#cardName').val() || 'mtg-card';
-                const safeFileName = cardName.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.png';
+                const cardName = $('#cardName').val();
+                const safeFileName = cardName.replaceAll("'", '\'').toLowerCase() + '.png';
                 const link = document.createElement('a');
                 link.download = safeFileName;
                 link.href = canvas.toDataURL();
