@@ -618,6 +618,9 @@
         // Keep the card type preview in sync with the input
         $('#cardType').on('input', function () {
             $('#cardArtType').text($(this).val());
+
+            if ($(this).val().indexOf('Creature') !== -1) $('#cardArtPt').hide();
+            else $('#cardArtPt').show();
         });
 
         $('#cardPt').on('input', function () {
