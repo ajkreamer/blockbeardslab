@@ -219,6 +219,11 @@
             background-color: #8e8451;
         }
 
+        .cost-badge {
+            height: 25px !important;
+            width: 25px !important;
+        }
+
         .mana-cost {
             background-color: #000;
             border-radius: 50%;
@@ -628,7 +633,27 @@
         }).trigger('input');
 
         $('#cardText').on('input', function () {
-            $('#cardArtTextContent').html('<div class="card-text-new-line">' + $(this).val().replaceAll('\n', '</div><div class="card-text-new-line">').replaceAll('<div class="card-text-new-line"></div>', '<div class="card-text-new-line">&nbsp;</div>'));
+            // BBCode-style [code] becomes the matching img/cost/code.png symbol
+            const text = $(this).val()
+                .replaceAll('[ut]', '<img class="cost-badge" src="img/cost/ut.png">')
+                .replaceAll('[t]', '<img class="cost-badge" src="img/cost/t.png">')
+                .replaceAll('[0]', '<img class="cost-badge" src="img/cost/0.png">')
+                .replaceAll('[1]', '<img class="cost-badge" src="img/cost/1.png">')
+                .replaceAll('[2]', '<img class="cost-badge" src="img/cost/2.png">')
+                .replaceAll('[3]', '<img class="cost-badge" src="img/cost/3.png">')
+                .replaceAll('[4]', '<img class="cost-badge" src="img/cost/4.png">')
+                .replaceAll('[5]', '<img class="cost-badge" src="img/cost/5.png">')
+                .replaceAll('[6]', '<img class="cost-badge" src="img/cost/6.png">')
+                .replaceAll('[7]', '<img class="cost-badge" src="img/cost/7.png">')
+                .replaceAll('[8]', '<img class="cost-badge" src="img/cost/8.png">')
+                .replaceAll('[9]', '<img class="cost-badge" src="img/cost/9.png">')
+                .replaceAll('[w]', '<img class="cost-badge" src="img/cost/w.png">')
+                .replaceAll('[u]', '<img class="cost-badge" src="img/cost/u.png">')
+                .replaceAll('[b]', '<img class="cost-badge" src="img/cost/b.png">')
+                .replaceAll('[r]', '<img class="cost-badge" src="img/cost/r.png">')
+                .replaceAll('[g]', '<img class="cost-badge" src="img/cost/g.png">');
+
+            $('#cardArtTextContent').html('<div class="card-text-new-line">' + text.replaceAll('\n', '</div><div class="card-text-new-line">').replaceAll('<div class="card-text-new-line"></div>', '<div class="card-text-new-line">&nbsp;</div>'));
             $('.card-text-new-line').eq($('.card-text-new-line').length - 1).removeClass('card-text-new-line');
         }).trigger('input');
 
