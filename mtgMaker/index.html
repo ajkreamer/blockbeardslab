@@ -576,6 +576,11 @@
                 ptColor = $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
             }
 
+            if ($('#colorTable input[type="radio"][name="color3"]:checked').data('color') != "none") {
+                color += '-' + $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
+                ptColor = $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
+            }
+
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder-${color}.png')`);
