@@ -566,8 +566,8 @@
         }
 
         function updateArtFrameColors() {
-            const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             const cardType = $('#cardType').val();
+            var color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             var isLegendary = cardType.indexOf('Legendary') !== -1;
 
             if ($('#colorTable input[type="radio"][name="color2"]:checked').data('color') != "none") {
