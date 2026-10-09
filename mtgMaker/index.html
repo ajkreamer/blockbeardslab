@@ -347,25 +347,25 @@
                                 <tr>
                                     <td><span class="right">Color 1</span></td>
                                     <td><label><input name="color1" type="radio" data-color="white"><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color1" type="radio" data-color="blue"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color1" type="radio" data-color="blue" ><span>&nbsp;</span></label></td>
                                     <td><label><input name="color1" type="radio" data-color="black"><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color1" type="radio" data-color="red"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color1" type="radio" data-color="red"  ><span>&nbsp;</span></label></td>
                                     <td><label><input name="color1" type="radio" data-color="green"><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color1" type="radio" data-color="gray"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color1" type="radio" data-color="gray" ><span>&nbsp;</span></label></td>
                                     <td><label><input name="color1" type="radio" data-color="gold" checked><span>&nbsp;</span></label></td>
                                     <td></td>
                                 </tr>
 
                                 <tr>
                                     <td><span class="right">Color 2</span></td>
-                                    <td><label><input name="color2" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color2" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color2" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color2" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color2" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color2" type="radio" data-color="white"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color2" type="radio" data-color="blue" ><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color2" type="radio" data-color="black"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color2" type="radio" data-color="red"  ><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color2" type="radio" data-color="green"><span>&nbsp;</span></label></td>
                                     <td></td>
                                     <td></td>
-                                    <td><label><input name="color2" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color2" type="radio" data-color="none" checked><span>&nbsp;</span></label></td>
                                 </tr>
 
                                 <tr>
@@ -569,6 +569,10 @@
             const color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             const cardType = $('#cardType').val();
             var isLegendary = cardType.indexOf('Legendary') !== -1;
+
+            if ($('#colorTable input[type="radio"][name="color2"]:checked').data('color') != "none") {
+                color += '-' + $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
+            }
 
             if (color != "none") {
                 $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
