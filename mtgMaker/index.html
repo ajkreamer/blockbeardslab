@@ -568,10 +568,12 @@
         function updateArtFrameColors() {
             const cardType = $('#cardType').val();
             var color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
+            var ptColor = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             var isLegendary = cardType.indexOf('Legendary') !== -1;
 
             if ($('#colorTable input[type="radio"][name="color2"]:checked').data('color') != "none") {
                 color += '-' + $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
+                ptColor = $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
             }
 
             if (color != "none") {
@@ -581,7 +583,7 @@
                 $('#cardArtTypePlate').css('background-image', `url('img/cardArtTypePlate-${color}.png')`);
                 $('#cardArtTextBorder').css('background-image', `url('img/cardArtTextBorder-${color}.png')`);
                 $('#cardArtTextBg').css('background-image', `url('img/cardArtTextBackground-${color}.png')`);
-                $('#cardArtPt').css('background-image', `url('img/pt/pt-${color}.png')`);
+                $('#cardArtPt').css('background-image', `url('img/pt/pt-${ptColor}.png')`);
 
                 $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
 
