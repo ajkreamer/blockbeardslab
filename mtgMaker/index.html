@@ -121,11 +121,11 @@
         }
 
         #cardArtTextBorder {
-            background-image: url('img/cardArtTextBorder.png');
+            background-image: url('img/text/border/cardArtTextBorder.png');
         }
 
         #cardArtTextBorderBorder {
-            background-image: url('img/cardArtTextBorderOverlay.png');
+            background-image: url('img/text/border/cardArtTextBorderOverlay.png');
         }
 
         #cardArtTextBorderBottom {
@@ -305,7 +305,7 @@
                         </div>
 
                         <div id="cardArtTextBorderBottom">
-                            <img id="cardArtTextBorderBottomImg" src="img/cardArtTextBorderBottom.png">
+                            <img id="cardArtTextBorderBottomImg" src="img/text/border/bottom/cardArtTextBorderBottom.png">
                         </div>
 
                         <div id="cardCredits">
@@ -582,34 +582,34 @@
             }
 
             if (color != "none") {
-                $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
+                $('#cardArtNamePlate').css('background-image',  `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder-${color}.png')`);
                 $('#cardArtTypeBorder').css('background-image', `url('img/typeplate/border/cardArtTypeBorder-${color}.png')`);
-                $('#cardArtTypePlate').css('background-image', `url('img/typeplate/cardArtTypePlate-${color}.png')`);
-                $('#cardArtTextBorder').css('background-image', `url('img/cardArtTextBorder-${color}.png')`);
-                $('#cardArtTextBg').css('background-image', `url('img/cardArtTextBackground-${color}.png')`);
-                $('#cardArtPt').css('background-image', `url('img/pt/pt-${ptColor}.png')`);
+                $('#cardArtTypePlate').css('background-image',  `url('img/typeplate/cardArtTypePlate-${color}.png')`);
+                $('#cardArtTextBorder').css('background-image', `url('img/text/border/cardArtTextBorder-${color}.png')`);
+                $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground-${color}.png')`);
+                $('#cardArtPt').css('background-image',         `url('img/pt/pt-${ptColor}.png')`);
 
-                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom-${color}.png`);
+                $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color}.png`);
 
                 if (isLegendary) {
-                    $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
+                    $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
                     $('#cardArtNameOverlay').css('background-image', `url('img/nameplate/cardArtNameOverlayLegendary.png')`);
                 }
             }
             else {
-                $('#cardArtNamePlate').css('background-image', `url('img/nameplate/dark/cardArtNamePlate-dark.png')`);
+                $('#cardArtNamePlate').css('background-image',  `url('img/nameplate/dark/cardArtNamePlate-dark.png')`);
                 $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder.png')`);
                 $('#cardArtTypeBorder').css('background-image', `url('img/typeplate/border/cardArtTypeBorder.png')`);
-                $('#cardArtTypePlate').css('background-image', `url('img/typeplate/cardArtTypePlate.png')`);
-                $('#cardArtTextBorder').css('background-image', `url('img/cardArtTextBorder.png')`);
-                $('#cardArtTextBg').css('background-image', `url('img/cardArtTextBackground.png')`);
-                $('#cardArtPt').css('background-image', `url('img/pt/pt.png')`);
+                $('#cardArtTypePlate').css('background-image',  `url('img/typeplate/cardArtTypePlate.png')`);
+                $('#cardArtTextBorder').css('background-image', `url('img/text/border/cardArtTextBorder.png')`);
+                $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground.png')`);
+                $('#cardArtPt').css('background-image',         `url('img/pt/pt.png')`);
 
-                $('#cardArtTextBorderBottomImg').attr('src', `img/cardArtTextBorderBottom.png`);
+                $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom.png`);
 
                 if (isLegendary) {
-                    $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/legendary/cardArtNameBorderLegendary.png')`);
+                    $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary.png')`);
                     $('#cardArtNameOverlay').css('background-image', `url('img/nameplate/cardArtNameOverlayLegendary.png')`);
                 }
             }
