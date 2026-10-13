@@ -594,6 +594,7 @@
             $('#cardArtPt').css('background-image',         `url('img/pt/pt-${ptColor}.png')`);
 
             if (color1 == color2) $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color1}.png`);
+            else $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color}.png`);
 
             if (isLegendary) {
                 $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
