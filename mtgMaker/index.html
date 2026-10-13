@@ -567,6 +567,10 @@
 
         function updateArtFrameColors() {
             const cardType = $('#cardType').val();
+            const color1 = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
+            const color2 = $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
+            const color3 = $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
+
             var color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             var ptColor = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
             var isLegendary = cardType.indexOf('Legendary') !== -1;
@@ -590,7 +594,7 @@
                 $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground-${color}.png')`);
                 $('#cardArtPt').css('background-image',         `url('img/pt/pt-${ptColor}.png')`);
 
-                $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color}.png`);
+                if (color1 == color2) $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color}.png`);
 
                 if (isLegendary) {
                     $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
