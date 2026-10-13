@@ -580,44 +580,24 @@
                 ptColor = color2;
             }
 
-            if (color3 != "none") {
-                color += '-' + color3;
-                ptColor = color3;
-            }
+            // if (color3 != "none") {
+            //     color += '-' + color3;
+            //     ptColor = color3;
+            // }
 
-            if (color != "none") {
-                $('#cardArtNamePlate').css('background-image',  `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
-                $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder-${color}.png')`);
-                $('#cardArtTypeBorder').css('background-image', `url('img/typeplate/border/cardArtTypeBorder-${color}.png')`);
-                $('#cardArtTypePlate').css('background-image',  `url('img/typeplate/cardArtTypePlate-${color}.png')`);
-                $('#cardArtTextBorder').css('background-image', `url('img/text/border/cardArtTextBorder-${color}.png')`);
-                $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground-${color}.png')`);
-                $('#cardArtPt').css('background-image',         `url('img/pt/pt-${ptColor}.png')`);
+            $('#cardArtNamePlate').css('background-image',  `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
+            $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder-${color}.png')`);
+            $('#cardArtTypeBorder').css('background-image', `url('img/typeplate/border/cardArtTypeBorder-${color}.png')`);
+            $('#cardArtTypePlate').css('background-image',  `url('img/typeplate/cardArtTypePlate-${color}.png')`);
+            $('#cardArtTextBorder').css('background-image', `url('img/text/border/cardArtTextBorder-${color}.png')`);
+            $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground-${color}.png')`);
+            $('#cardArtPt').css('background-image',         `url('img/pt/pt-${ptColor}.png')`);
 
-                if (color1 == color2) $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color1}.png`);
+            if (color1 == color2) $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color1}.png`);
 
-                console.log('color1:', color1, 'color2:', color2, 'color3:', color3);
-
-                if (isLegendary) {
-                    $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
-                    $('#cardArtNameOverlay').css('background-image', `url('img/nameplate/cardArtNameOverlayLegendary.png')`);
-                }
-            }
-            else {
-                $('#cardArtNamePlate').css('background-image',  `url('img/nameplate/dark/cardArtNamePlate-dark.png')`);
-                $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder.png')`);
-                $('#cardArtTypeBorder').css('background-image', `url('img/typeplate/border/cardArtTypeBorder.png')`);
-                $('#cardArtTypePlate').css('background-image',  `url('img/typeplate/cardArtTypePlate.png')`);
-                $('#cardArtTextBorder').css('background-image', `url('img/text/border/cardArtTextBorder.png')`);
-                $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground.png')`);
-                $('#cardArtPt').css('background-image',         `url('img/pt/pt.png')`);
-
-                $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom.png`);
-
-                if (isLegendary) {
-                    $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary.png')`);
-                    $('#cardArtNameOverlay').css('background-image', `url('img/nameplate/cardArtNameOverlayLegendary.png')`);
-                }
+            if (isLegendary) {
+                $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
+                $('#cardArtNameOverlay').css('background-image', `url('img/nameplate/cardArtNameOverlayLegendary.png')`);
             }
 
             if ($('#nameBgTheme').val() == 'gold') {
