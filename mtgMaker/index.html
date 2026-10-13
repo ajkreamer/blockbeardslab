@@ -571,18 +571,18 @@
             const color2 = $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
             const color3 = $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
 
-            var color = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
-            var ptColor = $('#colorTable input[type="radio"][name="color1"]:checked').data('color');
+            var color = color1;
+            var ptColor = color1;
             var isLegendary = cardType.indexOf('Legendary') !== -1;
 
-            if ($('#colorTable input[type="radio"][name="color2"]:checked').data('color') != "none") {
-                color += '-' + $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
-                ptColor = $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
+            if (color2 != "none") {
+                color += '-' + color2;
+                ptColor = color2;
             }
 
-            if ($('#colorTable input[type="radio"][name="color3"]:checked').data('color') != "none") {
-                color += '-' + $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
-                ptColor = $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
+            if (color3 != "none") {
+                color += '-' + color3;
+                ptColor = color3;
             }
 
             if (color != "none") {
