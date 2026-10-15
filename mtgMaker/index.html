@@ -370,14 +370,14 @@
 
                                 <tr>
                                     <td><span class="right">Color 3</span></td>
-                                    <td><label><input name="color3" type="radio" data-color="white" disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color3" type="radio" data-color="blue"  disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color3" type="radio" data-color="black" disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color3" type="radio" data-color="red"   disabled><span>&nbsp;</span></label></td>
-                                    <td><label><input name="color3" type="radio" data-color="green" disabled><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color3" type="radio" data-color="white"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color3" type="radio" data-color="blue"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color3" type="radio" data-color="black"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color3" type="radio" data-color="red"><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color3" type="radio" data-color="green"><span>&nbsp;</span></label></td>
                                     <td></td>
                                     <td></td>
-                                    <td><label><input name="color3" type="radio" data-color="none" checked disabled><span>&nbsp;</span></label></td>
+                                    <td><label><input name="color3" type="radio" data-color="none" checked><span>&nbsp;</span></label></td>
                                 </tr>
                             </table>
                         </div>
@@ -571,22 +571,16 @@
             const color2 = $('#colorTable input[type="radio"][name="color2"]:checked').data('color');
             const color3 = $('#colorTable input[type="radio"][name="color3"]:checked').data('color');
 
-            var color = color1;
-            var ptColor = color1;
+            var selectedColors = [color1, color2, color3]
+                .filter(function (selectedColor) {
+                    return selectedColor && selectedColor != "none";
+                })
+                .filter(function (selectedColor, index, colors) {
+                    return colors.indexOf(selectedColor) === index;
+                });
+            var color = selectedColors.join('-');
+            var ptColor = selectedColors[selectedColors.length - 1] || color1;
             var isLegendary = cardType.indexOf('Legendary') !== -1;
-
-            if (
-                (color2 != "none")
-                && (color2 != color1)
-            ) {
-                color += '-' + color2;
-                ptColor = color2;
-            }
-
-            // if (color3 != "none") {
-            //     color += '-' + color3;
-            //     ptColor = color3;
-            // }
 
             $('#cardArtNamePlate').css('background-image',  `url('img/nameplate/dark/cardArtNamePlate-${color}-dark.png')`);
             $('#cardArtNameBorder').css('background-image', `url('img/nameplate/border/cardArtNameBorder-${color}.png')`);
@@ -596,8 +590,7 @@
             $('#cardArtTextBg').css('background-image',     `url('img/cardArtTextBackground-${color}.png')`);
             $('#cardArtPt').css('background-image',         `url('img/pt/pt-${ptColor}.png')`);
 
-            if (color1 == color2) $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color1}.png`);
-            else $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color}.png`);
+            $('#cardArtTextBorderBottomImg').attr('src', `img/text/border/bottom/cardArtTextBorderBottom-${color}.png`);
 
             if (isLegendary) {
                 $('#cardArtNameBorder').css('background-image',  `url('img/nameplate/border/legendary/cardArtNameBorderLegendary-${color}.png')`);
