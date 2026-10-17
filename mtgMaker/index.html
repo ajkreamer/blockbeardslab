@@ -150,7 +150,7 @@
         #cardArtTextContent {
             color: white;
             font-family: 'MPlantin';
-            line-height: 33px;
+            line-height: 31px;
             padding-bottom: 10px;
             padding-left: 90px;
             padding-right: 90px;
@@ -678,7 +678,13 @@
         }).trigger('input');
 
         $('#cardTextFontSize').on('input', function () {
-            $('#cardArtTextContent').css('font-size', `${$(this).val()}px`);
+            const textSize = Number($(this).val());
+            if (!Number.isFinite(textSize) || textSize <= 0) return;
+
+            $('#cardArtTextContent').css({
+                'font-size': `${textSize}px`,
+                'line-height': `${textSize + 3}px`
+            });
         }).trigger('input');
 
         // Keep the card preview type size in sync with the font size input
