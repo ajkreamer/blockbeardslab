@@ -650,6 +650,7 @@
                 .replaceAll('[r]', '<img class="cost-badge" src="img/cost/r.png">')
                 .replaceAll('[g]', '<img class="cost-badge" src="img/cost/g.png">')
                 .replaceAll('[c]', '<img class="cost-badge" src="img/cost/c.png">');
+                .replaceAll('[x]', '<img class="cost-badge" src="img/cost/x.png">');
 
             $('#cardArtTextContent').html('<div class="card-text-new-line">' + text.replaceAll('\n', '</div><div class="card-text-new-line">').replaceAll('<div class="card-text-new-line"></div>', '<div class="card-text-new-line">&nbsp;</div>'));
             $('.card-text-new-line').eq($('.card-text-new-line').length - 1).removeClass('card-text-new-line');
